@@ -264,7 +264,7 @@ footer a {
 
 .menu-bar img {
     width: 100%;
-    max-height: 400px;
+    max-height: 300px;
     object-fit: cover;
 }
 
@@ -279,9 +279,14 @@ footer a {
 .menu-bar .container .text {
     position: absolute;
     right: 15%;
-    top: 50px;
+    top: 100px;
     font-size: 80px;
     color: white;
+}
+
+.menu-bar h1,
+.menu-bar h2 {
+    margin: 0;
 }
 
 .menu-list {
@@ -335,4 +340,156 @@ footer a {
 
 .menu-item button:hover {
     opacity: 0.7;
+}
+
+/* checkout */
+.menu-bar.checkout img {
+    max-height: 200px;
+}
+
+.checkout-container {
+    display: flex;
+    height: 1000px;
+}
+
+.checkout-form {
+    margin: 50px;
+}
+
+.checkout-form .form-row{
+    display: flex;
+}
+
+.checkout-form .form-row:first-child{
+    padding-top: 50px;
+}
+
+.checkout-form input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.checkout-form input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.checkout-form .button{
+    display: flex;
+    width: 100%;
+    padding: 10px 40px;
+    justify-content: space-between;
+}
+
+.checkout-form input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.checkout-form input[type=button] {
+    background-color: dimgrey;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.checkout-form input[type=button]:hover {
+    background-color: #333;
+}
+
+.checkout-form div {
+    background-color: #f2f2f2;
+    padding: 0 20px;
+}
+
+.checkout-form .payment,
+.checkout-form .form-header{
+    padding: 5px 40px;
+}
+
+.checkout-form .payment i {
+    color: #333;
+ }
+
+.checkout-summary {
+    position: sticky;
+    top: 0;
+    font-size: 20px;
+    max-height: 410px;
+    margin: 50px;
+    border-radius: 0px 0px 5px 5px;
+    min-width: 300px;
+    box-shadow: 0px 0px 7px 0px grey;
+}
+
+.checkout-summary .header {
+    height: 50px;
+    background-color: gray;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-weight: 500;
+}
+
+.checkout-summary .content {
+    padding: 20px 10px;
+    height: 200px;
+}
+
+.checkout-summary .content .item {
+    display: flex;
+    border-bottom: 1px solid gray;
+    padding: 10px 0px;
+}
+
+.checkout-summary .content .item .product-image img {
+    width: 60px;
+}
+
+.checkout-summary .content .item .product-detail {
+    padding: 0px 5px;
+    font-size: 14px;
+    max-width: 160px;
+}
+
+.checkout-summary .content .item .product-detail .product-title {
+    font-weight: bold;
+}
+
+.checkout-summary .content .item .product-price {
+    padding-top: 15px;
+    font-size: 15px;
+}
+
+.checkout-summary .content .item .product-subtotal,
+.checkout-summary .content .sub .product-subtotal,
+.checkout-summary .content .total .product-subtotal {
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: auto;
+    padding: 2px 0px;
+}
+
+.checkout-summary .content .total {
+    border-top: 1px solid gray;
+    padding: 5px 0px;
+}
+
+.checkout-summary .content .total .product-subtotal div{
+    font-size: 20px;
+    font-weight: 500;
 }
