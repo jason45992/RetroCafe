@@ -537,6 +537,11 @@ footer a {
     font-size: xxx-large;
 }
 
+.confirmation-title p {
+    font-size: large;
+    color: grey;
+}
+
 .confirm-container .info {
     font-size: 15px;
     padding: 20px;
