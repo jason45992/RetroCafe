@@ -172,6 +172,7 @@ textarea {
 
 .row>div label {
 	text-align: left;
+    margin-top: auto;
 }
 
 .radio-header {

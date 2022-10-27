@@ -286,7 +286,6 @@ footer a {
 .menu-bar .container {
     display: grid;
     grid-template-columns: repeat(3, auto);
-    min-height: 100%;
     grid-gap: 20px;
     width: 40%;
 }
