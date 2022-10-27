@@ -13,6 +13,7 @@
 
 .about-container {
 	display: flex;
+    justify-content: center;
 }
 
 
@@ -37,13 +38,13 @@
 
 
 .leftcolumn {
-	margin-top: 50PX;
-	width: 65%;
+    margin-top: 50PX;
+    margin-left: 80px;
 }
 
 .leftcolumn img {
-    width: 100%;
-    min-height: 600px;
+    width: auto;
+    max-height: 460px;
 }
 
 .wrapper .leftcontent {
@@ -66,14 +67,13 @@
 	width: 35%;
 	margin-top: 50PX;
 	margin-bottom: 50px;
-	min-height: 600PX;
-	background-color: #342626;
+	background-color: white;
 }
 
 .rightcolumn h1 {
     padding: 30px 0;
     text-align: center;
-	color: #f1f1f1;
+	color: black;
 }
 
 .rightcolumn form {
@@ -84,11 +84,12 @@
 
 .rightcolumn form label {
 	float: left;
-	text-align: right;
+	text-align: left;
 	padding-right: 20px;
 	margin-top: 10px;
-	margin-left: 90px;
-	color: #f1f1f1;
+	margin-left: 50px;
+	color: black;
+	width: 80px;
 }
 
 .rightcolumn input[type=email],
@@ -97,7 +98,7 @@ input[type=text] {
 }
 
 .rightcolumn input[type=submit] {
-	margin-left: 410px;
+	margin-left: 360px;
 }
 
 input,
@@ -110,13 +111,35 @@ input,
 .rightcolumn textarea {
 	width: 382px;
 	height: 200px;
-	margin-left: 90px;
-	max-width: 80%;
+	margin-left: 50px;
 	min-width: 20%;
 	min-height: 20%;
 }
 
+.aboutus-info {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
 
+.info {
+    box-shadow: 5px 4px 12px 0px #c5c5c5;
+    border-radius: 15px;
+    margin: 20px;
+    width: 220px;
+    padding: 20px;
+    height: 250px;
+}
+
+.info h1 {
+	color: BFA98B;
+    font-size: xxx-large;
+}
+
+.info p {
+    font-style: italic;
+    font-weight: 300;
+}
 
 button {
 	float: left;

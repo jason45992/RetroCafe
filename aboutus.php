@@ -56,19 +56,31 @@
 				<h1>About Us</h1>
 			</div>
 		</div>
-
+		<div class="aboutus-info">
+			<div class="info">
+				<h1>01</h1>
+				<h3>About Us</h3>
+				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			</div>
+			<div class="info">
+				<h1>01</h1>
+				<h3>About Us</h3>
+				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			</div>
+			<div class="info">
+				<h1>01</h1>
+				<h3>About Us</h3>
+				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			</div>
+			<div class="info">
+				<h1>01</h1>
+				<h3>About Us</h3>
+				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			</div>
+		</div>
 		<div class="about-container">
 			<div class="leftcolumn">
 				<img src="contactus1.png" alt="contact us image">
-				<div class="leftcontent">
-					<div class="text">
-						<p>While Retro Cafè remains a mainstay for good coffee and simple, hearty and wholly satisfying
-							fare, we are more than a restaurant to have meal with family and friends. Retro Cafè
-							provides a safe environment for customers to order fro online, fast delivery also ensure the
-							food and cafe freshness.</p>
-					</div>
-				</div>
-
 			</div>
 
 			<div class="rightcolumn">
@@ -90,9 +102,6 @@
 
 			</div>
 		</div>
-
-
-
 	</div>
 
 	<!-- Footer -->
