@@ -134,14 +134,17 @@ label {
 
 .checkout {
   float: right;
-  border: 0;
-  margin-top: 20px;
-  padding: 6px 25px;
-  background-color: #494;
-  color: #fff;
-  font-size: 20px;
-  border-radius: 3px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 40px 0px;
 }
+
+
 
 .checkout:hover {
   background-color: #4d764d;
@@ -149,13 +152,14 @@ label {
 
 .back {
   float: left;
-  border: 0;
-  margin-top: 20px;
-  padding: 6px 25px;
   background-color: gray;
-  color: #fff;
-  font-size: 20px;
-  border-radius: 3px;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 40px;
 }
 
 .back:hover {
