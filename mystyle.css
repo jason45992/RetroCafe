@@ -10,12 +10,13 @@ header img {
 	background-color: #fefefe;
 	width: 80%;
 	margin: auto;
+	min-height: 600px;
 
 }
 
 #wrapper h1 {
-	margin-top: 0px;
-	padding: 50px 0px 0px 580px;
+	text-align: center;
+	padding-top: 50px;
 }
 
 
@@ -24,7 +25,7 @@ header img {
 	width: 600px;
 }
 
-#leftcolumn img{
+#leftcolumn img {
 	width: 550px;
 }
 
@@ -37,7 +38,7 @@ header img {
 }
 
 #rightcolumn h1 {
-	padding:30px 0px 0px 280px;
+	padding: 30px 0px 0px 280px;
 }
 
 
@@ -63,7 +64,8 @@ input[type=submit] {
 	margin-left: 410px;
 }
 
-input, textarea {
+input,
+textarea {
 	font-family: Verdana, Arial, sans-serif;
 	margin-top: 10px;
 	display: block;
@@ -78,10 +80,23 @@ textarea {
 	min-height: 20%;
 }
 
+button {
+	float: left;
+	background-color: gray;
+	color: white;
+	padding: 14px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #333;
+}
+
 /*Account Page*/
 #account_content>table {
-	width: 1500px;
-	margin-left: -100px;
+	width: 100%;
 }
 
 #account_content>table tr td {
@@ -95,10 +110,9 @@ textarea {
 	margin: auto;
 }
 
-#adminConsole_content>input, textarea {
+#adminConsole_content>input,
+textarea {
 	font-family: Verdana, Arial, sans-serif;
 	margin-top: 10px;
 	display: flex;
 }
-
-
