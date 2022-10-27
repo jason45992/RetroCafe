@@ -39,36 +39,49 @@
 	</nav>
 
 	<!-- Content -->
-	<div id="wrapper">
-		<h1>About Us</h1>
-		<header>
-			<img src="aboutus_header.png" alt="about us image">
-		</header>
-
-		<div id="leftcolumn">
-
-			<img src="contactus.png" alt="contact us image">
-
+	<div class="wrapper">
+		<img src="aboutus_header.png" alt="About Us">
+		<div class="container">
+			<div class="text">
+				<h1>About Us</h1>
+			</div>
 		</div>
 
-		<div id="rightcolumn">
-			<h1>Contact Us</h1>
+		<div class="about-container">
+			<div class="leftcolumn">
+				<img src="contactus.png" alt="contact us image">
+				<div class="leftcontent">
+					<div class="text">
+						<p>While Retro Cafè remains a mainstay for good coffee and simple, hearty and wholly satisfying
+							fare, we are more than a restaurant to have meal with family and friends. Retro Cafè
+							provides a safe environment for customers to order fro online, fast delivery also ensure the
+							food and cafe freshness.</p>
+					</div>
+				</div>
 
-			<form action="show_post.php" method="post">
-				<label for="Name">Name:</label>
-				<input type="text" name="Name" id="Name"><br>
+			</div>
 
-				<label for="Email">E-mail:</label>
-				<input type="email" name="Email" id="Email"><br>
+			<div class="rightcolumn">
+				<h1>Contact Us</h1>
 
-				<label for="feedback"></label>
-				<textarea type="textarea" name="feedback" id="feedback" required placeholder="Type your feedback here"
-					rows="4" cols="35"></textarea><br>
-				<input type="submit" value="Submit">
-			</form>
+				<form action="show_post.php" method="post">
+					<label for="Name">Name:</label>
+					<input type="text" name="Name" id="Name"><br>
+
+					<label for="Email">E-mail:</label>
+					<input type="email" name="Email" id="Email"><br>
+
+					<label for="feedback"></label>
+					<textarea type="textarea" name="feedback" id="feedback" required
+						placeholder="Type your feedback here" rows="4" cols="35"></textarea><br>
+					<input type="submit" value="Submit">
+				</form>
 
 
+			</div>
 		</div>
+
+
 
 	</div>
 
