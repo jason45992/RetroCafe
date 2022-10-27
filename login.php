@@ -1,7 +1,5 @@
 <?php
   // create variables
-  $name=$_POST['name'];
-  $username=$_POST['username'];
   $email=$_POST['email'];
   $psw=$_POST['psw'];
 
@@ -15,12 +13,17 @@
   }
 
   //create new order
-  $query = "insert into user values (NULL, '".$name."', '".$username."', '".$email."', '".$psw."', 0)";
+  $query = "SELECT * FROM user WHERE user.email = '".$email."' and user.password = '".$psw."';";
   $result = $db->query($query);
+
+  //check if user cridential correct
+  $num_results = $result->num_rows;
+  if($num_results>0){
+    echo "<script>window.location.href='index.html';</script>";
+  }else{
+    echo "<script>alert('Login fail. Please check your email and password.');window.location.href='login.html';</script>";
+  };
 
   //close db connection
   $db->close();
-  //show success message and back to product menu page
-  echo "<script>alert('Account created successully! You can login now.');window.location.href='login.html';</script>";
-  
 ?>
