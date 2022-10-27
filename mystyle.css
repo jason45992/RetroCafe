@@ -41,21 +41,17 @@ header img {
 	padding: 30px 0px 0px 280px;
 }
 
-
 form {
 	font-family: Verdana, Arial, sans-serif;
-	padding: 10px 15px 30px 40px;
 }
 
 form label {
 	float: left;
-	width: 150px;
 	text-align: right;
 	padding-right: 20px;
 	margin-top: 10px;
 }
 
-input[type=text],
 input[type=email] {
 	width: 300px;
 }
@@ -65,13 +61,13 @@ input[type=submit] {
 }
 
 input,
-textarea {
+.rightcolumn textarea {
 	font-family: Verdana, Arial, sans-serif;
 	margin-top: 10px;
 	display: block;
 }
 
-textarea {
+.rightcolumn textarea {
 	width: 382px;
 	height: 200px;
 	margin-left: 90px;
@@ -106,13 +102,58 @@ button:hover {
 
 /*Admin Console Page*/
 #adminConsole_content>table {
-	width: 1200px;
+	width: 100%;
 	margin: auto;
 }
 
-#adminConsole_content>input,
-textarea {
-	font-family: Verdana, Arial, sans-serif;
-	margin-top: 10px;
+#adminConsole_content .row {
 	display: flex;
+	justify-content: space-between;
+	padding-top: 50px;
+}
+
+#adminConsole_content input,
+textarea {
+	display: flex;
+}
+
+.row>div label {
+	text-align: left;
+}
+
+.radio-header {
+	text-align: left;
+}
+
+.radio-grp {
+	display: flex;
+	margin-top: auto;
+	width: 80px;
+}
+
+.radio-grp input{
+    margin-top: 12px;
+}
+
+.form-dropdown select {
+	width: 100px;
+	height: 30px;
+	margin-left: 50px;
+}
+
+.form-btn-group {
+	display: flex;
+    justify-content: flex-end;
+}
+
+.form-btn-group input {
+	display: flex;
+	justify-content: space-between;
+    margin-right: 50px;
+	margin-top: 100px;
+}
+
+#adminConsole_content input{
+	max-width: 100px;
+	margin-left: 0;
 }

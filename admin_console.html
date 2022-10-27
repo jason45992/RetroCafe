@@ -40,7 +40,7 @@
 
 	<!-- Content -->
 	<div id="wrapper">
-		<h1>Admin Console</h1><br><br>
+		<h1>Admin Console</h1>
 
 		<div id="adminConsole_content">
 			<table border="1">
@@ -91,33 +91,50 @@
 				</tr>
 
 			</table>
-			<br><br>
-
-			<label>Item Name <input type="text" name="item_name" id="item_name" size="54"></label><br>
-
-			<label>Price <input type="number" name="price" id="price"></label><br>
-
-			<label>Quantity <input type="number" name="quantity" id="quantity"></label><br>
-
-			<label>Zip: <input type="text" name="zip" id="zip" maxlength="5" size="5"></label>
-
-			<input type="radio" name="visable" value="true" checked> True<br>
-			<input type="radio" name="visable" value="false"> False<br>
-
 			<form action="show_get.php" method="get">
-				<select size="1" name="chooseitem">
-					<option>Add New</option>
-					<option value="item1"> Item #1 </option>
-					<option value="item2"> Item #2 </option>
-					<option value="item3"> Item #3 </option>
+				<div class="row">
+					<div>
+						<label for="item_name">Item Name:</label>
+						<input type="text" name="item_name" id="item_name">
+					</div>
+					<div>
+						<label for="price">Price:</label>
+						<input type="number" name="price" id="price">
+					</div>
+					<div>
+						<label for="quantity">Quantity:</label>
+						<input type="number" name="quantity" id="quantity">
+					</div>
+					<div>
+						<label class="radio-header">Visable:</label>
+						<div class="radio-grp">
+							<input type="radio" name="visable" value="true" checked>
+							<label for="visable">True</label>
+							<input type="radio" name="visable" value="false">
+							<label for="visable">False</label>
+						</div>
+					</div>
+					<div class="form-dropdown">
+						<select size="1" name="chooseitem">
+							<option>Add New</option>
+							<option value="item1"> Item #1 </option>
+							<option value="item2"> Item #2 </option>
+							<option value="item3"> Item #3 </option>
+						</select>
+					</div>
+
+				</div>
+
+				<br>
+				<label id="description-label" for="description">Description:</label>
+				<textarea type="textarea" name="description" id="description" rows="2" cols="80"></textarea>
+
 			</form>
+			<div class="form-btn-group">
+				<input type="button" value="Back">
+				<input type="submit" value="Submit">
+			</div>
 
-			<label for="feedback">Description</label>
-			<textarea type="textarea" name="description" id="description" rows="4" cols="35"></textarea><br>
-
-
-			<input type="submit" value="Back">
-			<input type="submit" value="Back">
 
 		</div>
 	</div>
@@ -156,7 +173,7 @@
 						</button>
 					</span>
 				</div>
-				<br>
+
 				<p class="copyright">Copyright &copy; 2022 Retro Café</p>
 			</div>
 		</div>
