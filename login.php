@@ -57,7 +57,7 @@
 
                 <label for="psw"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="psw" required>
-                <p>Don't have account? <a class="sign-up-link" href="signnup.php">Sign up now</a></p>
+                <p>Don't have account? <a class="sign-up-link" href="signup.php">Sign up now</a></p>
                 <button type="submit" class="btn">Login</button>
             </form>
         </div>
