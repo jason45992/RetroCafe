@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Retro Café</title>
+	<meta charset="ut£-8">
+	<link rel="stylesheet" href="mystyle.css">
+	<link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+	<!-- Navbar links -->
+	<nav class="navbar">
+		<a class="logo" href="#">
+			<img src="logo.png">
+		</a>
+		<div class="nav-item">
+			<ul>
+				<li>
+					<a href="index.html">Home</a>
+				</li>
+				<li>
+					<a href="menu.html">Menu</a>
+				</li>
+				<li>
+					<a href="aboutus.html">About</a>
+				</li>
+				<li>
+					<a href="login.html">Login</a>
+				</li>
+				<li>
+					<a href="account_customer.html">Account</a>
+				</li>
+				<li>
+					<a href="cart.html"> Cart</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Content -->
+	<div id="wrapper">
+		<h1>Admin Console</h1><br><br>
+
+		<div id="adminConsole_content">
+			<table border="1">
+
+				<tr>
+					<th>Iteme Name</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>Quantity</th>
+					<th>Visable</th>
+					<th>Modified Date</th>
+				</tr>
+
+				<tr>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+				</tr>
+
+				<tr>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+				</tr>
+
+				<tr>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+				</tr>
+
+				<tr>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+					<td>xxxxxxxx</td>
+				</tr>
+
+			</table>
+			<br><br>
+
+			<label>Item Name <input type="text" name="item_name" id="item_name" size="54"></label><br>
+
+			<label>Price <input type="number" name="price" id="price"></label><br>
+
+			<label>Quantity <input type="number" name="quantity" id="quantity"></label><br>
+
+			<label>Zip: <input type="text" name="zip" id="zip" maxlength="5" size="5"></label>
+
+			<input type="radio" name="visable" value="true" checked> True<br>
+			<input type="radio" name="visable" value="false"> False<br>
+
+			<form action="show_get.php" method="get">
+				<select size="1" name="chooseitem">
+					<option>Add New</option>
+					<option value="item1"> Item #1 </option>
+					<option value="item2"> Item #2 </option>
+					<option value="item3"> Item #3 </option>
+			</form>
+
+			<label for="feedback">Description</label>
+			<textarea type="textarea" name="description" id="description" rows="4" cols="35"></textarea><br>
+
+
+			<input type="submit" value="Back">
+			<input type="submit" value="Back">
+
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer>
+		<div class="footer">
+			<div class="footer-info-item">
+				<h3>Information</h3>
+				<ul class="list-unstyled">
+					<li><a href="#">About Us</a></li>
+					<li><a href="#">Customer Service</a></li>
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Sitemap</a></li>
+					<li><a href="#">Orders &amp; Returns</a></li>
+				</ul>
+			</div>
+			<div class="footer-info-item">
+				<h3>My Account</h3>
+				<ul class="list-unstyled">
+					<li><a href="#">Sign In</a></li>
+					<li><a href="#">View Cart</a></li>
+					<li><a href="#">My Wishlist</a></li>
+					<li><a href="#">Track My Order</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+			</div>
+			<div class="footer-info-item">
+				<h3><span class=""></span> Newsletter</h3>
+				<p>Sign up for exclusive offers.</p>
+				<div class="">
+					<input type="email" class="" placeholder="Enter your email address">
+					<span class="">
+						<button class="" type="button">
+							Subscribe!
+						</button>
+					</span>
+				</div>
+				<br>
+				<p class="copyright">Copyright &copy; 2022 Retro Café</p>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>

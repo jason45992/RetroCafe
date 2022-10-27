@@ -115,6 +115,12 @@ footer a {
     position: relative;
 }
 
+.left img {
+	width: 200px;
+	margin-top: 100px;
+}
+
+
 .form-wapper {
     padding: 145px;
 }
