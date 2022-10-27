@@ -50,7 +50,7 @@
 
 	<!-- Content -->
 	<div class="wrapper">
-		<img src="aboutus_header.png" alt="About Us">
+		<img src="contactus.png" alt="About Us">
 		<div class="container">
 			<div class="text">
 				<h1>About Us</h1>
@@ -59,7 +59,7 @@
 
 		<div class="about-container">
 			<div class="leftcolumn">
-				<img src="contactus.png" alt="contact us image">
+				<img src="contactus1.png" alt="contact us image">
 				<div class="leftcontent">
 					<div class="text">
 						<p>While Retro Cafè remains a mainstay for good coffee and simple, hearty and wholly satisfying
