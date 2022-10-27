@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+  session_start();
+  $user_id = $_SESSION['user_id'];
+  $user_name = $_SESSION['user_name'];
+  $user_is_admin = $_SESSION['user_is_admin'];
+?>
 <html>
 
 <head>
@@ -16,43 +21,90 @@
         <div class="nav-item">
             <ul>
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="index.php">Home</a>
                 </li>
                 <li>
-                    <a href="menu.html">Menu</a>
+                    <a href="menu.php">Menu</a>
                 </li>
                 <li>
-                    <a href="aboutus.html">About</a>
+                    <a href="aboutus.php">About</a>
                 </li>
+                <?php
+                    if($user_id){
+                        if($user_is_admin == '0'){
+                            echo "<li><a href=\"account_customer.php\">Account</a></li>";
+                        } else {
+                            echo "<li><a href=\"account_admin.php\">Account</a></li>";
+                        }
+                    }else{
+                        echo "<li><a href=\"login.php\">Login</a></li>";
+                    }
+                ?>
                 <li>
-                    <a href="login.html">Login</a>
-                </li>
-                <li>
-                    <a href="account_customer.html">Account</a>
-                </li>
-                <li>
-                    <a href="cart.html"> Cart</a>
+                    <a href="cart.php"> Cart</a>
                 </li>
             </ul>
         </div>
     </nav>
 
     <!-- Content -->
-    <div class="confirmation-title">
-        <h1>Thank you for your order</h1>
-        <p>We are sending an email confirmation to albert.tan@gamil.com whith this information shortly.</p>
+    <div class="menu-bar checkout">
+        <img src="menu.jpg" alt="Menu">
+        <div class="container">
+            <div class="text">
+                <h2>Checkout</h2>
+            </div>
+        </div>
     </div>
-    <div class="bar-broder">
-        <div class="bar-progress" style="height: 20px;width:20%"></div>
-    </div>
-    <div class="bar-label">
-        <label>Processing</label>
-        <label>Shipped</label>
-        <label>Delivered</label>
-    </div>
-    <div class="confirm-container">
+    <div class="checkout-container">
+        <div class="checkout-form">
+            <form action="">
+                <div class="form-header">
+                    <h4>Shipping Details</h4>
+                </div>
+                <div class="form-row">
+                    <div>
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                    </div>
+                    <div>
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div>
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                    </div>
+                    <div>
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                    </div>
+                </div>
+                <div class="payment">
+                    <h4>Payment Method</h4>
+                    <p>
+                        <i class="fa-brands fa-cc-paypal fa-2x"></i>
+                        <i class="fa-brands fa-cc-apple-pay fa-2x"></i>
+                        <i class="fa-brands fa-cc-visa fa-2x"></i>
+                        <i class="fa-brands fa-cc-mastercard fa-2x"></i>
+                    </p>
+                </div>
+                <div class="button">
+                    <input type="button" value="Back">
+                    <input type="button" onclick="location.href='confirmation.php'" value="Submit">
+                </div>
+            </form>
+        </div>
         <div class="checkout-summary">
-            <div class="header">Items to be shippped</div>
+            <div class="header">Purchase Summary</div>
             <div class="content">
                 <div class="item">
                     <div class="product-image">
@@ -102,16 +154,6 @@
                         <div>S$67</div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="shipping-summary">
-            <div class="header">Shipping Address</div>
-            <div class="info">
-                <p><b>First Namd:</b> Albert</p>
-                <p><b>Last Namd:</b> Tan</p>
-                <p><b>Contact Number:</b> 62120196</p>
-                <p><b>Address:</b> 18 Cross Street #12-01/08 China Square Central</p>
-                <p><b>Postal Code:</b> 048423</p>
             </div>
         </div>
     </div>

@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+  session_start();
+  $user_id = $_SESSION['user_id'];
+  $user_name = $_SESSION['user_name'];
+  $user_is_admin = $_SESSION['user_is_admin'];
+?>
 <html>
 
 <head>
@@ -16,22 +21,27 @@
         <div class="nav-item">
             <ul>
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="index.php">Home</a>
                 </li>
                 <li>
-                    <a href="menu.html">Menu</a>
+                    <a href="menu.php">Menu</a>
                 </li>
                 <li>
-                    <a href="aboutus.html">About</a>
+                    <a href="aboutus.php">About</a>
                 </li>
+                <?php
+                    if($user_id){
+                        if($user_is_admin == '0'){
+                            echo "<li><a href=\"account_customer.php\">Account</a></li>";
+                        } else {
+                            echo "<li><a href=\"account_admin.php\">Account</a></li>";
+                        }
+                    }else{
+                        echo "<li><a href=\"login.php\">Login</a></li>";
+                    }
+                ?>
                 <li>
-                    <a href="login.html">Login</a>
-                </li>
-                <li>
-                    <a href="account_customer.html">Account</a>
-                </li>
-                <li>
-                    <a href="cart.html"> Cart</a>
+                    <a href="cart.php"> Cart</a>
                 </li>
             </ul>
         </div>
@@ -118,7 +128,7 @@
         </div>
 
         <button class="back">Back</button>
-        <button class="checkout" onclick="location.href ='checkout.html'">Checkout</button>
+        <button class="checkout" onclick="location.href ='checkout.php'">Checkout</button>
 
     </div>
     <!-- Footer -->

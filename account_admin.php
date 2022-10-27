@@ -1,5 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+  session_start();
+  $user_id = $_SESSION['user_id'];
+  $user_name = $_SESSION['user_name'];
+  $user_is_admin = $_SESSION['user_is_admin'];
+?>
+<html>
 
 <head>
 	<title>Retro Café</title>
@@ -11,32 +16,37 @@
 <body>
 	<!-- Navbar links -->
 	<nav class="navbar">
-		<a class="logo" href="#">
-			<img src="logo.png">
-		</a>
-		<div class="nav-item">
-			<ul>
-				<li>
-					<a href="index.html">Home</a>
-				</li>
-				<li>
-					<a href="menu.html">Menu</a>
-				</li>
-				<li>
-					<a href="aboutus.html">About</a>
-				</li>
-				<li>
-					<a href="login.html">Login</a>
-				</li>
-				<li>
-					<a href="account_customer.html">Account</a>
-				</li>
-				<li>
-					<a href="cart.html"> Cart</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+        <a class="logo" href="#">
+            <img src="logo.png">
+        </a>
+        <div class="nav-item">
+            <ul>
+                <li>
+                    <a href="index.php">Home</a>
+                </li>
+                <li>
+                    <a href="menu.php">Menu</a>
+                </li>
+                <li>
+                    <a href="aboutus.php">About</a>
+                </li>
+                <?php
+                    if($user_id){
+                        if($user_is_admin == '0'){
+                            echo "<li><a href=\"account_customer.php\">Account</a></li>";
+                        } else {
+                            echo "<li><a href=\"account_admin.php\">Account</a></li>";
+                        }
+                    }else{
+                        echo "<li><a href=\"login.php\">Login</a></li>";
+                    }
+                ?>
+                <li>
+                    <a href="cart.php"> Cart</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
 	<!-- Content -->
 	<div id="wrapper">
@@ -52,10 +62,9 @@
 			<label for="Username">Email: xxxxx@xx.com</label>
 			<br><br>
 			<div class="adminbutton">
-				<button onclick="location.href='admin_console.html'">Admin Console</button>
+				<button onclick="location.href='admin_console.php'">Admin Console</button>
 				<button type="submit" class="btn">Logout</button>
 			</div>
-
 
 		</div>
 
