@@ -2,7 +2,10 @@
   session_start();
   $user_id = $_SESSION['user_id'];
   $user_name = $_SESSION['user_name'];
+  $user_user_name = $_SESSION['user_user_name'];
+  $user_email= $_SESSION['user_email'];
   $user_is_admin = $_SESSION['user_is_admin'];
+
 ?>
 <html>
 
@@ -53,19 +56,15 @@
 		<div id="account_content">
 			<h3>Personal Information</h3>
 			<hr>
-			<label for="Name">Name: xxxxxxxx</label>
-			<br>
-			<label for="Username">Username: xxxxxxx</label>
-			<br>
-			<label for="Username">Email: xxxxx@xx.com</label>
-			<br><br>
+			<?php
+				echo '<label><b>Name:</b> '.$user_name.'</label><br><label><b>Username:</b> '.$user_user_name.'</label><br><label><b>Email:</b> '.$user_email.'</label><br><br>';
+			?>
 			<div class="adminbutton">
 				<button onclick="location.href='admin_console.php'">Admin Console</button>
-				<button type="submit" class="btn">Logout</button>
+				<button type="submit" class="btn" onclick="location.href='logout.php'">Logout</button>
 			</div>
 
 		</div>
-
 
 
 	</div>

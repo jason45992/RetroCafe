@@ -23,6 +23,8 @@
     $row = $result->fetch_assoc();
     $_SESSION['user_id'] = $row['id']; 
     $_SESSION['user_name'] = $row['name']; 
+    $_SESSION['user_user_name'] = $row['username']; 
+    $_SESSION['user_email'] = $row['email']; 
     $_SESSION['user_is_admin'] = $row['is_admin']; 
     echo "<script>window.location.href='index.php';</script>";
   }else{

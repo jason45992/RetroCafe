@@ -351,6 +351,11 @@ footer a {
 .menu-item p {
     font-size: 15px;
     margin: 0;
+    height: 50px;
+}
+
+.menu-item h2 {
+    width: 210px;
 }
 
 .menu-item .price {
@@ -358,6 +363,13 @@ footer a {
     font-size: 22px;
     text-align: right;
     padding-bottom: 10px;
+    height: 40px;
+    position: absolute;
+    margin: -45px 220;
+}
+
+.menu-item .description {
+    height: 90px;
 }
 
 .menu-item button {
