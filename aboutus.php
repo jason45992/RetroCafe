@@ -60,22 +60,22 @@
 			<div class="info">
 				<h1>01</h1>
 				<h3>About Us</h3>
-				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				<p>Retro Cafè provides a safe environment for customers to order fro online, fast delivery also ensure the food and cafe freshness.</p>
 			</div>
 			<div class="info">
-				<h1>01</h1>
-				<h3>About Us</h3>
-				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				<h1>02</h1>
+				<h3>Our Coffee</h3>
+				<p>Rotate the blend origins often as part of an ongoing fine-tuning process to achieve sustained consistency in the taste.</p>
 			</div>
 			<div class="info">
-				<h1>01</h1>
-				<h3>About Us</h3>
-				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				<h1>03</h1>
+				<h3>Our Food</h3>
+				<p>With an in-house cake bar, customers can look forward to a constantly-rotating menu of cakes, along with daily crafted bread.</p>
 			</div>
 			<div class="info">
-				<h1>01</h1>
-				<h3>About Us</h3>
-				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				<h1>04</h1>
+				<h3>Our Experience</h3>
+				<p>Retro Cafè remains a mainstay for good coffee and simple, hearty and wholly satisfying fare, we are more than a restaurant.</p>
 			</div>
 		</div>
 		<div class="about-container">

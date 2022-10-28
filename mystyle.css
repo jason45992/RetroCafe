@@ -141,7 +141,18 @@ input,
     font-weight: 300;
 }
 
-button {
+.adminbutton button{
+	float: left;
+	background-color: gray;
+	color: white;
+	padding: 14px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	width: 4cm;
+}
+
+.logout button{
 	float: left;
 	background-color: gray;
 	color: white;
