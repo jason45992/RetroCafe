@@ -5,6 +5,7 @@
   $user_user_name = $_SESSION['user_user_name'];
   $user_email= $_SESSION['user_email'];
   $user_is_admin = $_SESSION['user_is_admin'];
+
 ?>
 <html>
 
@@ -64,7 +65,6 @@
 			</div>
 
 		</div>
-
 
 
 	</div>

@@ -1,18 +1,18 @@
 function updateContentByFilter(id) {
-    if(id == "btn-all"){
-        document.getElementById("btn-all").classList = ["active"];
-        document.getElementById("btn-coffee").classList = ["inActive"];
-        document.getElementById("btn-cake").classList = ["inActive"];
+    if(id == "all"){
+        document.getElementById("all").classList = ["active"];
+        document.getElementById("coffee").classList = ["inActive"];
+        document.getElementById("cake").classList = ["inActive"];
 
-    }else if(id == "btn-coffee"){
-        document.getElementById("btn-all").classList = ["inActive"];
-        document.getElementById("btn-coffee").classList = ["active"];
-        document.getElementById("btn-cake").classList = ["inActive"];
+    }else if(id == "coffee"){
+        document.getElementById("all").classList = ["inActive"];
+        document.getElementById("coffee").classList = ["active"];
+        document.getElementById("cake").classList = ["inActive"];
 
-    }else if(id == "btn-cake"){
-        document.getElementById("btn-all").classList = ["inActive"];
-        document.getElementById("btn-coffee").classList = ["inActive"];
-        document.getElementById("btn-cake").classList = ["active"];
+    }else if(id == "cake"){
+        document.getElementById("all").classList = ["inActive"];
+        document.getElementById("coffee").classList = ["inActive"];
+        document.getElementById("cake").classList = ["active"];
         
     }
 }

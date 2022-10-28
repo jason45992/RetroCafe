@@ -3,6 +3,7 @@
   $user_id = $_SESSION['user_id'];
   $user_name = $_SESSION['user_name'];
   $user_is_admin = $_SESSION['user_is_admin'];
+  $category = $_GET['category'];
 ?>
 <html>
 <html>
@@ -55,53 +56,37 @@
         </div>
     </div>
     <div class="menu-filter">
-        <button id="btn-all" class="active" onclick="updateContentByFilter(this.id)">All</button>
-        <button id="btn-coffee" class="inActive" onclick="updateContentByFilter(this.id)">Coffee</button>
-        <button id="btn-cake" class="inActive" onclick="updateContentByFilter(this.id)">Cake</button>
+        <button id="all" class="active" onclick="location.href='menu.php';">All</button>
+        <button id="coffee" class="inActive" onclick="location.href='menu.php?category=coffee';">Coffee</button>
+        <button id="cake" class="inActive" onclick="location.href='menu.php?category=cake';">Cake</button>
     </div>
     <div class="menu-list">
-        <div class="menu-item">
-            <img src="food.jpg">
-            <h2>TIRAMISU CAKE</h2>
-            <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-            <p class="price">$19.99</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-        <div class="menu-item">
-            <img src="food.jpg">
-            <h2>TIRAMISU CAKE</h2>
-            <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-            <p class="price">$19.99</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-        <div class="menu-item">
-            <img src="food.jpg">
-            <h2>TIRAMISU CAKE</h2>
-            <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-            <p class="price">$19.99</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-        <div class="menu-item">
-            <img src="food.jpg">
-            <h2>TIRAMISU CAKE</h2>
-            <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-            <p class="price">$19.99</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-        <div class="menu-item">
-            <img src="food.jpg">
-            <h2>TIRAMISU CAKE</h2>
-            <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-            <p class="price">$19.99</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-        <div class="menu-item">
-            <img src="food.jpg">
-            <h2>TIRAMISU CAKE</h2>
-            <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-            <p class="price">$19.99</p>
-            <p><button>Add to Cart</button></p>
-        </div>
+        <?php
+            // estabilish new db connection
+			@ $db = new mysqli('localhost', 'root', '','RetroCafe');
+			//log if db connection error
+			if (mysqli_connect_errno()) {
+				echo 'Error: Could not connect to database.  Please try again later.';
+				exit;
+			}
+			$query = "SELECT * FROM product";
+
+            if($category && $category != 'all'){
+                $query = $query." WHERE category='".$category."'";
+            }
+
+			$result = $db->query($query);
+			$num_results = $result->num_rows;
+
+			if($num_results > 0){
+				for ($i=0; $i <$num_results; $i++) {
+					$row = $result->fetch_assoc();
+                    echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2><p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p><p><button>Add to Cart</button></p></div>';
+				}
+			}else{
+				echo '<div><p>No recent purchased found.</p></div>';
+			}	
+        ?>
     </div>
 
     <!-- Footer -->
@@ -144,7 +129,23 @@
         </div>
     </footer>
 </body>
+<script type="text/javascript">
+    function updateContentByFilter(id) {
+    if(id == "coffee"){
+        document.getElementById("all").classList = ["inActive"];
+        document.getElementById("coffee").classList = ["active"];
+        document.getElementById("cake").classList = ["inActive"];
 
-<script type="text/javascript" src="menu.js"></script>
+    }else if(id == "cake"){
+        document.getElementById("all").classList = ["inActive"];
+        document.getElementById("coffee").classList = ["inActive"];
+        document.getElementById("cake").classList = ["active"];
+    }
+}
+</script>
+
+<?php 
+echo '<script type="text/JavaScript"> updateContentByFilter("'.$category.'");</script>';
+?>
 
 </html>
