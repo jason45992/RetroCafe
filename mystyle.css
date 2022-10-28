@@ -13,54 +13,54 @@
 
 .about-container {
 	display: flex;
-    justify-content: center;
+	justify-content: center;
 }
 
 
-.wrapper img{
+.wrapper img {
 	width: 100%;
-    max-height: 300px;
-    object-fit: cover;
+	max-height: 300px;
+	object-fit: cover;
 }
 
 .wrapper .container .text {
-    position: absolute;
-    left: 5%;
-    top: 120px;
-    font-size: 70px;
-    color: white;
+	position: absolute;
+	left: 5%;
+	top: 120px;
+	font-size: 70px;
+	color: white;
 	text-shadow: 2px;
 }
 
 .wrapper h1 {
-    margin: 0;
+	margin: 0;
 }
 
 
 .leftcolumn {
-    margin-top: 50PX;
-    margin-left: 80px;
+	margin-top: 50PX;
+	margin-left: 80px;
 }
 
 .leftcolumn img {
-    width: auto;
-    max-height: 460px;
+	width: auto;
+	max-height: 460px;
 }
 
 .wrapper .leftcontent {
 	position: absolute;
-    top: 55%;
-    color: #f1f1f1;
-    width: 25%;
-    padding: 50px;
-    word-spacing: 2px;
-    line-height: 1.5;
-    margin-left: 37%;
+	top: 55%;
+	color: #f1f1f1;
+	width: 25%;
+	padding: 50px;
+	word-spacing: 2px;
+	line-height: 1.5;
+	margin-left: 37%;
 	min-width: 400px;
 }
 
-.wrapper .leftcontent p{
-    font-size: 22px;
+.wrapper .leftcontent p {
+	font-size: 22px;
 }
 
 .rightcolumn {
@@ -71,14 +71,14 @@
 }
 
 .rightcolumn h1 {
-    padding: 30px 0;
-    text-align: center;
+	padding: 30px 0;
+	text-align: center;
 	color: black;
 }
 
 .rightcolumn form {
 	font-family: Verdana, Arial, sans-serif;
-    padding: 0 60px 50px 0;
+	padding: 0 60px 50px 0;
 	display: inline-block;
 }
 
@@ -101,7 +101,7 @@ input[type=text] {
 	margin-left: 360px;
 }
 
-input,
+.rightcolumn input,
 .rightcolumn textarea {
 	font-family: Verdana, Arial, sans-serif;
 	margin-top: 10px;
@@ -117,31 +117,31 @@ input,
 }
 
 .aboutus-info {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
 }
 
 .info {
-    box-shadow: 5px 4px 12px 0px #c5c5c5;
-    border-radius: 15px;
-    margin: 20px;
-    width: 220px;
-    padding: 20px;
-    height: 250px;
+	box-shadow: 5px 4px 12px 0px #c5c5c5;
+	border-radius: 15px;
+	margin: 20px;
+	width: 220px;
+	padding: 20px;
+	height: 250px;
 }
 
 .info h1 {
 	color: BFA98B;
-    font-size: xxx-large;
+	font-size: xxx-large;
 }
 
 .info p {
-    font-style: italic;
-    font-weight: 300;
+	font-style: italic;
+	font-weight: 300;
 }
 
-.adminbutton button{
+.adminbutton button {
 	float: left;
 	background-color: gray;
 	color: white;
@@ -152,7 +152,7 @@ input,
 	width: 4cm;
 }
 
-.logout button{
+.logout button {
 	float: left;
 	background-color: gray;
 	color: white;
@@ -163,13 +163,16 @@ input,
 	width: 4cm;
 }
 
-
-button:hover {
+.logout button:hover {
 	background-color: #333;
 }
 
-.adminbutton .btn{
+.adminbutton .btn {
 	margin-left: 10px;
+}
+
+.adminbutton button:hover {
+	background-color: #333;
 }
 
 /*Account Page*/
@@ -182,7 +185,7 @@ button:hover {
 	text-align: center;
 }
 
-.logout{
+.logout {
 	margin-top: 30px;
 	margin-left: 0%;
 }
@@ -206,7 +209,7 @@ textarea {
 
 .row>div label {
 	text-align: left;
-    margin-top: auto;
+	margin-top: auto;
 }
 
 .radio-header {
@@ -219,8 +222,8 @@ textarea {
 	width: 80px;
 }
 
-.radio-grp input{
-    margin-top: 12px;
+.radio-grp input {
+	margin-top: 12px;
 }
 
 .form-dropdown select {
@@ -231,17 +234,17 @@ textarea {
 
 .form-btn-group {
 	display: flex;
-    justify-content: flex-end;
+	justify-content: flex-end;
 }
 
 .form-btn-group input {
 	display: flex;
 	justify-content: space-between;
-    margin-right: 50px;
+	margin-right: 50px;
 	margin-top: 100px;
 }
 
-#adminConsole_content input{
+#adminConsole_content input {
 	max-width: 100px;
 	margin-left: 0;
 }
