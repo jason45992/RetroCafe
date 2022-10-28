@@ -34,16 +34,14 @@
                     if($user_id){
                         if($user_is_admin == '0'){
                             echo "<li><a href=\"account_customer.php\">Account</a></li>";
+                            echo "<li><a href=\"cart.php\">Cart</a></li>";
                         } else {
-                            echo "<li><a href=\"account_admin.php\">Account</a></li>";
+                            echo "<li><a href=\"account_admin.php\">Admin</a></li>";
                         }
                     }else{
                         echo "<li><a href=\"login.php\">Login</a></li>";
                     }
                 ?>
-                <li>
-                    <a href="cart.php"> Cart</a>
-                </li>
             </ul>
         </div>
     </nav>
