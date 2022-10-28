@@ -303,13 +303,33 @@ footer a {
     margin: 0;
 }
 
+.menu-filter {
+    width: 100%;
+    padding: 50px 100px 0 100px;
+    background-color: #f2f2f2;
+}
+
+.menu-filter button{
+    font-size: large;
+    border: 1px solid #383838;
+    border-radius: 15px;
+    width: 100px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.menu-filter button.active{
+    background-color: #383838;
+    color: white;
+}
+
 .menu-list {
     width: 100%;
     display: grid;
     gap: 25px;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     background-color: #F2F2F2;
-    padding: 80px 50px;
+    padding: 50px 50px 120px 50px;
 }
 
 .menu-item {

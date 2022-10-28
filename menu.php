@@ -33,16 +33,14 @@
                     if($user_id){
                         if($user_is_admin == '0'){
                             echo "<li><a href=\"account_customer.php\">Account</a></li>";
+                            echo "<li><a href=\"cart.php\">Cart</a></li>";
                         } else {
-                            echo "<li><a href=\"account_admin.php\">Account</a></li>";
+                            echo "<li><a href=\"account_admin.php\">Admin</a></li>";
                         }
                     }else{
                         echo "<li><a href=\"login.php\">Login</a></li>";
                     }
                 ?>
-                <li>
-                    <a href="cart.php"> Cart</a>
-                </li>
             </ul>
         </div>
     </nav>
@@ -55,6 +53,11 @@
                 <h1>Menu</h1>
             </div>
         </div>
+    </div>
+    <div class="menu-filter">
+        <button id="btn-all" class="active" onclick="updateContentByFilter(this.id)">All</button>
+        <button id="btn-coffee" class="inActive" onclick="updateContentByFilter(this.id)">Coffee</button>
+        <button id="btn-cake" class="inActive" onclick="updateContentByFilter(this.id)">Cake</button>
     </div>
     <div class="menu-list">
         <div class="menu-item">
@@ -142,6 +145,6 @@
     </footer>
 </body>
 
-
+<script type="text/javascript" src="menu.js"></script>
 
 </html>
