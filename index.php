@@ -62,38 +62,38 @@
                 <div class="gallery-inner">
                     <div class="">
                         <div class="popular-item">
-                            <img src="test.jpg">
-                            <img class="overlay"src="test.jpg">
+                            <img src="cafe1.jpg">
+                            <img class="overlay"src="cafe1.jpg">
                         </div>
                     </div>
                     <div class="">
                         <div class="popular-item">
-                            <img src="test.jpg">
-                            <img class="overlay"src="test.jpg">
+                            <img src="cafe2.jpg">
+                            <img class="overlay"src="cafe2.jpg">
                         </div>
                     </div>
                     <div class="">
                         <div class="popular-item">
-                            <img src="test.jpg">
-                            <img class="overlay"src="test.jpg">
+                            <img src="cafe3.jpg">
+                            <img class="overlay"src="cafe3.jpg">
                         </div>
                     </div>
                     <div class="">
                         <div class="popular-item">
-                            <img src="test.jpg">
-                            <img class="overlay"src="test.jpg">
+                            <img src="cafe4.jpg">
+                            <img class="overlay"src="cafe4.jpg">
                         </div>
                     </div>
                     <div class="">
                         <div class="popular-item">
-                            <img src="test.jpg">
-                            <img class="overlay"src="test.jpg">
+                            <img src="cafe5.jpg">
+                            <img class="overlay"src="cafe5.jpg">
                         </div>
                     </div>
                     <div class="">
                         <div class="popular-item">
-                            <img src="test.jpg">
-                            <img class="overlay"src="test.jpg">
+                            <img src="cafe6.jpg">
+                            <img class="overlay"src="cafe6.jpg">
                         </div>
                     </div>
                 </div>
