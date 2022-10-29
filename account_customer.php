@@ -5,6 +5,7 @@
   $user_user_name = $_SESSION['user_user_name'];
   $user_email= $_SESSION['user_email'];
   $user_is_admin = $_SESSION['user_is_admin'];
+  $cart_list = $_SESSION['cart'];
 ?>
 <html>
 
@@ -36,7 +37,12 @@
                     if($user_id){
                         if($user_is_admin == '0'){
                             echo "<li><a href=\"account_customer.php\">Account</a></li>";
-                            echo "<li><a href=\"cart.php\">Cart</a></li>";
+                            if(count($_SESSION['cart']) > 0){
+                                echo "<li><a href=\"cart.php\">Cart [".count($_SESSION['cart'])."]</a></li>";
+                            }else{
+                                echo "<li><a href=\"cart.php\">Cart [0]</a></li>";
+                            }
+                            
                         } else {
                             echo "<li><a href=\"account_admin.php\">Admin</a></li>";
                         }

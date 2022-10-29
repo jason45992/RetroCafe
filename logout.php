@@ -3,6 +3,7 @@
   // store to test if they *were* logged in
   $old_user = $_SESSION['user_id'];  
   unset($_SESSION['user_id']);
+  unset($_SESSION['cart']);
   session_destroy();
-  header('Location: index.php');
+  header('Location: login.php');
 ?>
