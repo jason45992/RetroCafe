@@ -110,36 +110,40 @@
         <div class="checkout-summary">
             <div class="header">Purchase Summary</div>
             <div class="content">
-                <div class="item">
-                    <div class="product-image">
-                        <img src="coffee.jpg">
-                    </div>
-                    <div class="product-detail">
-                        <div class="product-title">Organic Nicaraguan Coffee</div>
-                        <div class="product-quantity">x3</div>
-                    </div>
-                    <div class="product-price">S$12.99</div>
-                </div>
-                <div class="item">
-                    <div class="product-image">
-                        <img src="coffee.jpg">
-                    </div>
-                    <div class="product-detail">
-                        <div class="product-title">Organic Nicaraguan Coffee</div>
-                        <div class="product-quantity">x3</div>
-                    </div>
-                    <div class="product-price">S$12.99</div>
-                </div>
-                <div class="item">
-                    <div class="product-image">
-                        <img src="coffee.jpg">
-                    </div>
-                    <div class="product-detail">
-                        <div class="product-title">Organic Nicaraguan Coffee</div>
-                        <div class="product-quantity">x3</div>
-                    </div>
-                    <div class="product-price">S$12.99</div>
-                </div>
+                    <?php
+                    if(sizeof($cart_list) > 0){
+                        $product_list = implode(",", $cart_list);
+                        $product_quantity = array_count_values($cart_list);
+                        // estabilish new db connection
+                        @ $db = new mysqli('localhost', 'root', '','RetroCafe');
+                        //log if db connection error
+                        if (mysqli_connect_errno()) {
+                            echo 'Error: Could not connect to database.  Please try again later.';
+                            exit;
+                        }
+                        $query = "SELECT * FROM product WHERE id in (".$product_list.")";
+                        $result = $db->query($query);
+                        $num_results = $result->num_rows;
+
+                        for ($i=0; $i <$num_results; $i++) {
+                            $row = $result->fetch_assoc();
+                            echo '<div class="item">
+                                    <div class="product-image">
+                                        <img src="'.$row['img_url'].'">
+                                    </div>
+                                    <div class="product-detail">
+                                        <div class="product-title">'.$row['name'].'</div>
+                                        <div class="product-quantity">'.$product_quantity[$row['id']].'</div>
+                                    </div>
+                                    <div class="product-price">S$'.floatval($row['price'])*$product_quantity[$row['id']].'</div>
+                                </div>';
+                        }
+
+                    }else{
+                        echo "Shopping cart is empty!";
+                    }
+                ?>
+                
                 <div class="sub">
                     <div class="product-subtotal">
                         <div>Subtotal</div>
