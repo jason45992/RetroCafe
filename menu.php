@@ -3,7 +3,16 @@
   $user_id = $_SESSION['user_id'];
   $user_name = $_SESSION['user_name'];
   $user_is_admin = $_SESSION['user_is_admin'];
+  $category = 'all';
   $category = $_GET['category'];
+  if($category === NULL){
+    $category = 'all';
+  }
+  
+  $cart_list = $_SESSION['cart'];
+  if (isset($_GET['buy'])) {
+    $_SESSION['cart'][] = $_GET['buy'];
+  }
 ?>
 <html>
 <html>
@@ -34,7 +43,12 @@
                     if($user_id){
                         if($user_is_admin == '0'){
                             echo "<li><a href=\"account_customer.php\">Account</a></li>";
-                            echo "<li><a href=\"cart.php\">Cart</a></li>";
+                            if(count($_SESSION['cart']) > 0){
+                                echo "<li><a href=\"cart.php\">Cart [".count($_SESSION['cart'])."]</a></li>";
+                            }else{
+                                echo "<li><a href=\"cart.php\">Cart [0]</a></li>";
+                            }
+                            
                         } else {
                             echo "<li><a href=\"account_admin.php\">Admin</a></li>";
                         }
@@ -56,7 +70,7 @@
         </div>
     </div>
     <div class="menu-filter">
-        <button id="all" class="active" onclick="location.href='menu.php';">All</button>
+        <button id="all" class="active" onclick="location.href='menu.php?category=all';">All</button>
         <button id="coffee" class="inActive" onclick="location.href='menu.php?category=coffee';">Coffee</button>
         <button id="cake" class="inActive" onclick="location.href='menu.php?category=cake';">Cake</button>
     </div>
@@ -81,7 +95,11 @@
 			if($num_results > 0){
 				for ($i=0; $i <$num_results; $i++) {
 					$row = $result->fetch_assoc();
-                    echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2><p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p><p><button>Add to Cart</button></p></div>';
+                    if(empty($user_id)){
+                        echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2><p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p><p><button onclick="addToCart(0,'.$row['id'].',\''.$row['name'].'\');">Add to Cart</button></p></div>';
+                    }else{
+                        echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2><p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p><p><button onclick="addToCart(1,'.$row['id'].',\''.$row['name'].'\');">Add to Cart</button></p></div>';
+                    }
 				}
 			}else{
 				echo '<div><p>No recent purchased found.</p></div>';
@@ -131,17 +149,40 @@
 </body>
 <script type="text/javascript">
     function updateContentByFilter(id) {
-    if(id == "coffee"){
-        document.getElementById("all").classList = ["inActive"];
-        document.getElementById("coffee").classList = ["active"];
-        document.getElementById("cake").classList = ["inActive"];
+        if(id == "coffee"){
+            document.getElementById("all").classList = ["inActive"];
+            document.getElementById("coffee").classList = ["active"];
+            document.getElementById("cake").classList = ["inActive"];
 
-    }else if(id == "cake"){
-        document.getElementById("all").classList = ["inActive"];
-        document.getElementById("coffee").classList = ["inActive"];
-        document.getElementById("cake").classList = ["active"];
-    }
-}
+        } else if(id == "cake"){
+            document.getElementById("all").classList = ["inActive"];
+            document.getElementById("coffee").classList = ["inActive"];
+            document.getElementById("cake").classList = ["active"];
+        } else {
+            document.getElementById("all").classList = ["active"];
+            document.getElementById("coffee").classList = ["inActive"];
+            document.getElementById("cake").classList = ["inActive"];
+        }
+    };
+
+    function addToCart(is_login, product_id, product_name) {
+        if(is_login){
+            if(!<?php echo $user_is_admin; ?>){
+                var path = "menu.php";
+                var category = <?php echo $category; ?>;
+                if(category){
+                    path = path + "?category=" + category.id;
+                }
+                path = path + "&buy="+product_id;
+                var alert_msg = product_name+" added!";
+                alert(alert_msg);
+                window.location.href = path;
+            }
+        }else{
+            alert("Please login first");
+            window.location.href = "login.php";
+        }
+    };
 </script>
 
 <?php 
