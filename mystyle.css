@@ -196,16 +196,29 @@ input[type=text] {
 	margin: auto;
 }
 
+#adminConsole_content>table th:nth-child(3),
+#adminConsole_content>table td:nth-child(3){
+    width: 300px;
+    overflow-wrap: anywhere;
+}
+
+
 #adminConsole_content .row {
 	display: flex;
 	justify-content: space-between;
 	padding-top: 50px;
 }
 
+
 #adminConsole_content input,
 textarea {
 	display: flex;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+
 }
+
+
 
 .row>div label {
 	text-align: left;
@@ -227,7 +240,7 @@ textarea {
 }
 
 .form-dropdown select {
-	width: 100px;
+	width: 150px;
 	height: 30px;
 	margin-left: 50px;
 }
@@ -245,6 +258,6 @@ textarea {
 }
 
 #adminConsole_content input {
-	max-width: 100px;
+	max-width: 150px;
 	margin-left: 0;
 }
