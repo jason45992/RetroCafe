@@ -96,8 +96,10 @@ label {
   line-height: 1.4em;
 }
 .product .product-quantity input {
+  text-align: center;
   width: 40px;
 }
+
 .product .remove-product {
   border: 0;
   padding: 4px 8px;
@@ -107,6 +109,7 @@ label {
   font-size: 12px;
   border-radius: 3px;
 }
+
 .product .remove-product:hover {
   background-color: #a44;
 }

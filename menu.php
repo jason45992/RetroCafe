@@ -8,10 +8,12 @@
   if($category === NULL){
     $category = 'all';
   }
-  
   $cart_list = $_SESSION['cart'];
   if (isset($_GET['buy'])) {
     $_SESSION['cart'][] = $_GET['buy'];
+  }
+  if (isset($_COOKIE['cart-scrollpos'])) {
+    setcookie("cart-scrollpos", 0, time() + (86400 * 30));
   }
 ?>
 <html>
@@ -42,8 +44,8 @@
                 <?php
                     if($user_id){
                         if($user_is_admin == '0'){
-                            echo "<li><a href=\"account_customer.php\">Account</a></li>";
-                            if(count($_SESSION['cart']) > 0){
+                            echo "<li><a href=\"account_customer.php\">My Account</a></li>";
+                            if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0){
                                 echo "<li><a href=\"cart.php\">Cart [".count($_SESSION['cart'])."]</a></li>";
                             }else{
                                 echo "<li><a href=\"cart.php\">Cart [0]</a></li>";
@@ -96,9 +98,9 @@
 				for ($i=0; $i <$num_results; $i++) {
 					$row = $result->fetch_assoc();
                     if(empty($user_id)){
-                        echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2><p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p><p><button onclick="addToCart(0,'.$row['id'].',\''.$row['name'].'\');">Add to Cart</button></p></div>';
+                        echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2><p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p><p><button onclick="addToCart(0,'.$row['id'].',\''.$row['name'].'\',this);">Add to Cart</button></p></div>';
                     }else{
-                        echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2><p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p><p><button onclick="addToCart(1,'.$row['id'].',\''.$row['name'].'\');">Add to Cart</button></p></div>';
+                        echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2><p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p><p><button onclick="addToCart(1,'.$row['id'].',\''.$row['name'].'\',this);">Add to Cart</button></p></div>';
                     }
 				}
 			}else{
@@ -163,20 +165,23 @@
             document.getElementById("coffee").classList = ["inActive"];
             document.getElementById("cake").classList = ["inActive"];
         }
+        document.cookie = "menu-scrollpos=0";
     };
 
-    function addToCart(is_login, product_id, product_name) {
+    function addToCart(is_login, product_id, product_name, el) {
         if(is_login){
-            if(!<?php echo $user_is_admin; ?>){
+            if(<?php echo empty($user_is_admin)?>){
                 var path = "menu.php";
                 var category = <?php echo $category; ?>;
                 if(category){
                     path = path + "?category=" + category.id;
                 }
                 path = path + "&buy="+product_id;
-                var alert_msg = product_name+" added!";
-                alert(alert_msg);
-                window.location.href = path;
+                el.innerHTML = "Added";
+                setTimeout(() => {
+                    document.cookie = "menu-scrollpos="+window.scrollY;
+                    window.location.href = path;
+                }, 1000)
             }
         }else{
             alert("Please login first");
@@ -184,7 +189,10 @@
         }
     };
 </script>
-
+<!-- for cookie -->
+<script type="text/javascript">
+    window.scrollTo(0, <?php echo $_COOKIE['menu-scrollpos']; ?>);
+</script>
 <?php 
 echo '<script type="text/JavaScript"> updateContentByFilter("'.$category.'");</script>';
 ?>

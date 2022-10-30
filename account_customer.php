@@ -6,6 +6,12 @@
   $user_email= $_SESSION['user_email'];
   $user_is_admin = $_SESSION['user_is_admin'];
   $cart_list = $_SESSION['cart'];
+  if (isset($_COOKIE['menu-scrollpos'])) {
+    setcookie("menu-scrollpos", 0, time() + (86400 * 30));
+  }
+  if (isset($_COOKIE['cart-scrollpos'])) {
+    setcookie("cart-scrollpos", 0, time() + (86400 * 30));
+  }
 ?>
 <html>
 
@@ -36,8 +42,8 @@
                 <?php
                     if($user_id){
                         if($user_is_admin == '0'){
-                            echo "<li><a href=\"account_customer.php\">Account</a></li>";
-                            if(count($_SESSION['cart']) > 0){
+                            echo "<li><a href=\"account_customer.php\">My Account</a></li>";
+                            if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0){
                                 echo "<li><a href=\"cart.php\">Cart [".count($_SESSION['cart'])."]</a></li>";
                             }else{
                                 echo "<li><a href=\"cart.php\">Cart [0]</a></li>";

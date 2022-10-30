@@ -3,6 +3,32 @@
   $user_id = $_SESSION['user_id'];
   $user_name = $_SESSION['user_name'];
   $user_is_admin = $_SESSION['user_is_admin'];
+  $cart_list = $_SESSION['cart'];
+  if(isset($_GET['removeItem'])){
+    foreach (array_keys($cart_list, $_GET['removeItem']) as $key) {
+        unset($cart_list[$key]);
+    }
+    $_SESSION['cart'] = $cart_list;
+    header('location: cart.php');
+  }
+
+  if(isset($_GET['decreaseIten'])){
+    if (($key = array_search($_GET['decreaseIten'], $cart_list)) !== false) {
+        unset($cart_list[$key]);
+    }
+    $_SESSION['cart'] = $cart_list;
+    header('location: cart.php');
+  }
+
+  if(isset($_GET['addItem'])){
+    array_push($cart_list, $_GET['addItem']);
+    $_SESSION['cart'] = $cart_list;
+    header('location: cart.php');
+  }
+  if (isset($_COOKIE['menu-scrollpos'])) {
+    setcookie("menu-scrollpos", 0, time() + (86400 * 30));
+  }
+  
 ?>
 <html>
 
@@ -10,6 +36,15 @@
     <title>Retro Café</title>
     <link href="styles.css" rel="stylesheet">
     <link href="cart.css" rel="stylesheet">
+    <script type="text/javascript">
+        function checkCart(is_empty) {
+            if(is_empty){
+                alert("Please add at least one item before check out.");
+            }else{
+                window.location.href = "checkout.php";
+            }
+        };
+    </script>
 </head>
 
 <body>
@@ -32,8 +67,13 @@
                 <?php
                     if($user_id){
                         if($user_is_admin == '0'){
-                            echo "<li><a href=\"account_customer.php\">Account</a></li>";
-                            echo "<li><a href=\"cart.php\">Cart</a></li>";
+                            echo "<li><a href=\"account_customer.php\">My Account</a></li>";
+                            if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0){
+                                echo "<li><a href=\"cart.php\">Cart [".count($_SESSION['cart'])."]</a></li>";
+                            }else{
+                                echo "<li><a href=\"cart.php\">Cart [0]</a></li>";
+                            }
+                            
                         } else {
                             echo "<li><a href=\"account_admin.php\">Admin</a></li>";
                         }
@@ -56,77 +96,89 @@
     </div>
 
     <div class="shopping-cart">
-
-        <div class="column-labels">
-            <label class="product-image">Image</label>
-            <label class="product-details">Product</label>
-            <label class="product-price">Price</label>
-            <label class="product-quantity">Quantity</label>
-            <label class="product-removal">Remove</label>
-            <label class="product-line-price">Total</label>
-        </div>
-
-        <div class="product">
-            <div class="product-image">
-                <img src="coffee.jpg">
-            </div>
-            <div class="product-details">
-                <div class="product-title">Organic Nicaraguan Coffee</div>
-                <p class="product-description">TRoasted, organic single-origin 100% Arabica coffee beans organically grown in the region of Nicaragua. Fully washed and traditionally fermented, this medium roast coffee has a fresh sharp acidity with citric notes of tangerine and a floral bouquet.</p>
-            </div>
-            <div class="product-price">12.99</div>
-            <div class="product-quantity">
-                <input type="number" value="2" min="1">
-            </div>
-            <div class="product-removal">
-                <button class="remove-product">
-                    Remove
-                </button>
-            </div>
-            <div class="product-line-price">25.98</div>
-        </div>
-
-        <div class="product">
-            <div class="product-image">
-                <img src="coffee.jpg">
-            </div>
-            <div class="product-details">
-                <div class="product-title">Organic Nicaraguan Coffee</div>
-                <p class="product-description">TRoasted, organic single-origin 100% Arabica coffee beans organically grown in the region of Nicaragua. Fully washed and traditionally fermented, this medium roast coffee has a fresh sharp acidity with citric notes of tangerine and a floral bouquet. Grind fresh for the best ﬂavour. Suitable for cafetières and ﬁlter machines. Strength No. 3.</p>
-            </div>
-            <div class="product-price">45.99</div>
-            <div class="product-quantity">
-                <input type="number" value="1" min="1">
-            </div>
-            <div class="product-removal">
-                <button class="remove-product">
-                    Remove
-                </button>
-            </div>
-            <div class="product-line-price">45.99</div>
-        </div>
-
-        <div class="totals">
-            <div class="totals-item">
-                <label>Subtotal</label>
-                <div class="totals-value" id="cart-subtotal">71.97</div>
-            </div>
-            <div class="totals-item">
-                <label>Tax (7%)</label>
-                <div class="totals-value" id="cart-tax">3.60</div>
-            </div>
-            <div class="totals-item">
-                <label>Shipping</label>
-                <div class="totals-value" id="cart-shipping">15.00</div>
-            </div>
-            <div class="totals-item totals-item-total">
-                <label>Grand Total</label>
-                <div class="totals-value" id="cart-total">90.57</div>
-            </div>
-        </div>
-
-        <button class="back">Back</button>
-        <button class="checkout" onclick="location.href ='checkout.php'">Checkout</button>
+        <?php
+            if(isset($cart_list) && sizeof($cart_list) > 0){
+                echo '<div class="column-labels">
+                        <label class="product-image">Image</label>
+                        <label class="product-details">Product</label>
+                        <label class="product-price">Price</label>
+                        <label class="product-quantity">Quantity</label>
+                        <label class="product-removal">Remove</label>
+                        <label class="product-line-price">Total</label>
+                    </div>';
+                $product_list = implode(",", $cart_list);
+                $product_quantity = array_count_values($cart_list);
+                // estabilish new db connection
+                @ $db = new mysqli('localhost', 'root', '','RetroCafe');
+                //log if db connection error
+                if (mysqli_connect_errno()) {
+                    echo 'Error: Could not connect to database.  Please try again later.';
+                    exit;
+                }
+                $query = "SELECT * FROM product WHERE id in (".$product_list.")";
+                $result = $db->query($query);
+                $num_results = $result->num_rows;
+                $sub_total = 0;
+                for ($i=0; $i <$num_results; $i++) {
+					$row = $result->fetch_assoc();
+                    echo '<div class="product">
+                            <div class="product-image">
+                                <img src="'.$row['img_url'].'">
+                            </div>
+                            <div class="product-details">
+                                <div class="product-title">'.$row['name'].'</div>
+                                <p class="product-description">'.$row['description'].'</p>
+                            </div>
+                            <div class="product-price">'.$row['price'].'</div>
+                            <div class="product-quantity">
+                                <a class="remove-product" onclick="updateCokkie();" href="'.$_SERVER['PHP_SELF'].'?decreaseIten='.$row['id'].'">-</a>
+                                <input type="text" value="'.$product_quantity[$row['id']].'" disabled="disabled">
+                                <a class="remove-product" onclick="updateCokkie();" href="'.$_SERVER['PHP_SELF'].'?addItem='.$row['id'].'">+</a>
+                            </div>
+                            <div class="product-removal">
+                                <a class="remove-product" onclick="updateCokkie();" href="'.$_SERVER['PHP_SELF'].'?removeItem='.$row['id'].'">Remove</a>
+                            </div>
+                            <div class="product-line-price">'.floatval($row['price'])*$product_quantity[$row['id']].'</div>
+                        </div>';
+                        $sub_total += floatval($row['price'])*$product_quantity[$row['id']];
+				}
+                $sub_total = number_format((float)$sub_total, 2, '.', '');
+                $tax = $sub_total * 0.07;
+                $tax = number_format((float)$tax, 2, '.', '');
+                $total = $sub_total + $tax + 5;
+                //store in session
+                $_SESSION['sub_total'] = $sub_total; 
+                $_SESSION['tax'] = $tax; 
+                $_SESSION['total'] = $total; 
+                echo '<div class="totals">
+                        <div class="totals-item">
+                            <label>Subtotal</label>
+                            <div class="totals-value" id="cart-subtotal">'.$sub_total.'</div>
+                        </div>
+                        <div class="totals-item">
+                            <label>Tax (7%)</label>
+                            <div class="totals-value" id="cart-tax">'.$tax.'</div>
+                        </div>
+                        <div class="totals-item">
+                            <label>Shipping</label>
+                            <div class="totals-value" id="cart-shipping">5.00</div>
+                        </div>
+                        <div class="totals-item totals-item-total">
+                            <label>Grand Total</label>
+                            <div class="totals-value" id="cart-total">'.$total.'</div>
+                        </div>
+                    </div>';
+            }else{ 
+                echo "Shopping cart is empty!";
+            }
+            if(empty($cart_list)){
+                echo '<button class="checkout" onclick="checkCart(true);">Checkout</button>';
+            }else{
+                echo '<button class="checkout" onclick="checkCart(false);">Checkout</button>';
+            }
+        ?>
+        
+        
 
     </div>
     <!-- Footer -->
@@ -169,7 +221,11 @@
         </div>
     </footer>
 </body>
-
-
-
+<!-- for cookie -->
+<script type="text/javascript">
+    function updateCokkie(){
+        document.cookie = "cart-scrollpos="+window.scrollY;
+    }
+    window.scrollTo(0, <?php echo $_COOKIE['cart-scrollpos']; ?>);
+</script>
 </html>

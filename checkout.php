@@ -4,6 +4,9 @@
   $user_name = $_SESSION['user_name'];
   $user_is_admin = $_SESSION['user_is_admin'];
   $cart_list = $_SESSION['cart'];
+  $sub_total = $_SESSION['sub_total']; 
+  $tax = $_SESSION['tax']; 
+  $total = $_SESSION['total']; 
 ?>
 <html>
 
@@ -33,8 +36,8 @@
                 <?php
                     if($user_id){
                         if($user_is_admin == '0'){
-                            echo "<li><a href=\"account_customer.php\">Account</a></li>";
-                            if(count($_SESSION['cart']) > 0){
+                            echo "<li><a href=\"account_customer.php\">My Account</a></li>";
+                            if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0){
                                 echo "<li><a href=\"cart.php\">Cart [".count($_SESSION['cart'])."]</a></li>";
                             }else{
                                 echo "<li><a href=\"cart.php\">Cart [0]</a></li>";
@@ -62,34 +65,34 @@
     </div>
     <div class="checkout-container">
         <div class="checkout-form">
-            <form action="">
+            <form action="place_order.php" method="post">
                 <div class="form-header">
                     <h4>Shipping Details</h4>
                 </div>
                 <div class="form-row">
                     <div>
-                        <label for="fname">First Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                        <label for="firstname">First Name</label>
+                        <input type="text" id="firstname" name="firstname" placeholder="Your first name.." required>
                     </div>
                     <div>
-                        <label for="fname">First Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" id="lastname" name="lastname" placeholder="Your last name.." required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div>
-                        <label for="fname">First Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                        <label for="contactnum">Contact Number</label>
+                        <input type="text" id="contactnum" name="contactnum" placeholder="Your contact number.." required>
                     </div>
                     <div>
-                        <label for="fname">First Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                        <label for="postalcode">Postal Code</label>
+                        <input type="text" id="postalcode" name="postalcode" placeholder="Your postal code.." required>
                     </div>
                 </div>
                 <div>
                     <div>
-                        <label for="fname">First Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" placeholder="Your address.." required>
                     </div>
                 </div>
                 <div class="payment">
@@ -102,8 +105,8 @@
                     </p>
                 </div>
                 <div class="button">
-                    <input type="button" value="Back">
-                    <input type="button" onclick="location.href='confirmation.php'" value="Submit">
+                    <input type="button" onclick="location.href ='cart.php'"value="Back">
+                    <input type="submit" value="Submit">
                 </div>
             </form>
         </div>
@@ -142,27 +145,32 @@
                     }else{
                         echo "Shopping cart is empty!";
                     }
+                    echo '<div class="sub">
+                            <div class="product-subtotal">
+                                <div>Subtotal</div>
+                                <div>$'.$sub_total.'</div>
+                            </div>
+                        </div>
+                        <div class="sub">
+                            <div class="product-subtotal">
+                                <div>Tax(7%)</div>
+                                <div>$'.$tax.'</div>
+                            </div>
+                        </div>
+                        <div class="sub">
+                            <div class="product-subtotal">
+                                <div>Shipping</div>
+                                <div>$5</div>
+                            </div>
+                        </div>
+                        <div class="total">
+                            <div class="product-subtotal">
+                                <div>Total</div>
+                                <div>$'.$total.'</div>
+                            </div>
+                        </div>
+                    </div>';
                 ?>
-                
-                <div class="sub">
-                    <div class="product-subtotal">
-                        <div>Subtotal</div>
-                        <div>S$33</div>
-                    </div>
-                </div>
-                <div class="sub">
-                    <div class="product-subtotal">
-                        <div>Shipping</div>
-                        <div>S$4</div>
-                    </div>
-                </div>
-                <div class="total">
-                    <div class="product-subtotal">
-                        <div>Total</div>
-                        <div>S$67</div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 

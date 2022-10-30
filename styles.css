@@ -409,6 +409,10 @@ footer a {
     display: flex;
 }
 
+.form-row div {
+    width: 50%;
+}
+
 .checkout-form .form-row:first-child {
     padding-top: 50px;
 }
