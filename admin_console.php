@@ -3,9 +3,29 @@
   $user_id = $_SESSION['user_id'];
   $user_name = $_SESSION['user_name'];
   $user_is_admin = $_SESSION['user_is_admin'];
-?>
-<html>
 
+// estabilish new db connection
+@ $db = new mysqli('localhost', 'root', '','RetroCafe');
+
+//log if db connection error
+if (mysqli_connect_errno()) {
+	echo 'Error: Could not connect to database.  Please try again later.';
+	exit;
+}
+
+$selected=$_GET['selected'];
+$selectedname='';
+$selectedprice='';
+$selectedquantity='';
+$selecteddescription='';
+$selectedvisable='';
+$selectedcategory='';
+$selectedimgurl='';
+
+
+?>
+
+<html>
 <head>
 	<title>Retro Café</title>
 	<meta charset="ut£-8">
@@ -51,98 +71,145 @@
 		<h1>Admin Console</h1>
 
 		<div id="adminConsole_content">
-			<table border="1">
+			
+				<?php	
+				$query = "SELECT id, category, name, img_url, description, price, quantity, visable, modified_date FROM `product`;";
+				$result = $db->query($query);
+				$num_results = $result->num_rows;
 
-				<tr>
+				if($num_results > 0){
+					echo '<table border="1"><tr>
+					<th>Category</th>
 					<th>Iteme Name</th>
+					<th>Image URL</th>
 					<th>Description</th>
 					<th>Price</th>
 					<th>Quantity</th>
 					<th>Visable</th>
-					<th>Modified Date</th>
-				</tr>
+					<th>Modified Date</th></tr>';
+					for ($i=0; $i <$num_results; $i++) {
+						$row = $result->fetch_assoc();
+						$itemid = $row['id'];
 
-				<tr>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-				</tr>
+						if($selected==$itemid){
+							$selectedcategory=$row['category'];
+							$selectedname=$row['name'];
+							$selectedimgurl=$row['img_url'];
+							$selectedprice=$row['price'];
+							$selectedquantity=$row['quantity'];
+							$selecteddescription=$row['description'];
+							$selectedvisable=$row['visable'];
+						}
+					echo '<tr>
+					<td>'.$row['category'].'</td>
+					<td>'.$row['name'].'</td>
+					<td>'.$row['img_url'].'</td>
+					<td>'.$row['description'].'</td>
+					<td>'.$row['price'].'</td>
+					<td>'.$row['quantity'].'</td>
+					<td>'.$row['visable'].'</td>
+					<td>'.$row['modified_date'].'</td>
+				</tr>';
+					
+				}
+				echo '</table>';
+			}
+			?>
 
-				<tr>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-				</tr>
+			<form action="admin_console_info_update.php" method="get">
 
-				<tr>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-				</tr>
-
-				<tr>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-					<td>xxxxxxxx</td>
-				</tr>
-
-			</table>
-			<form action="show_get.php" method="get">
 				<div class="row">
+
+
+				<div style="display:none">
+				<label for="item_id">Item id:</label>
+				<input type="text" value="<?php echo $selected; ?>" name="item_id" id="item_id">
+				</div>
+
+
+				<div>
+					<label for="category">Category:</label>
+					<input type="text" value="<?php echo $selectedcategory; ?>" name="category" id="category">
+				</div>
+
+
 					<div>
-						<label for="item_name">Item Name:</label>
-						<input type="text" name="item_name" id="item_name">
+				<label for="item_name">Item Name:</label>
+				<input type="text" value="<?php echo $selectedname; ?>" name="item_name" id="item_name">
 					</div>
+
 					<div>
-						<label for="price">Price:</label>
-						<input type="number" name="price" id="price">
-					</div>
+					<label for="img_url">Image URL:</label>
+					<input type="text" value="<?php echo $selectedimgurl; ?>" name="img_url" id="img_url">
+				</div>
+				
+
 					<div>
-						<label for="quantity">Quantity:</label>
-						<input type="number" name="quantity" id="quantity">
+					<label for="price">Price:</label>
+					<input type="number" min="0" value="<?php echo $selectedprice; ?>" name="price" id="price">
 					</div>
+
+					<div>
+					<label for="quantity">Quantity:</label>
+					<input type="number"  min="0" value="<?php echo $selectedquantity; ?>" name="quantity" id="quantity">
+					</div>
+
 					<div>
 						<label class="radio-header">Visable:</label>
 						<div class="radio-grp">
-							<input type="radio" name="visable" value="true" checked>
-							<label for="visable">True</label>
-							<input type="radio" name="visable" value="false">
-							<label for="visable">False</label>
+
+					
+							<input type="radio" name="visable" value="1" checked="checked"
+							<?php if ($selectedvisable == 1): ?>
+               checked="checked"
+			   <?php endif ?>>True<br>
+			   <input type="radio" name="visable" value="0"
+							<?php if ($selectedvisable == 0): ?>
+               checked="checked"
+			   <?php endif ?>>False<br>
+			   
+
+
 						</div>
 					</div>
+		
 					<div class="form-dropdown">
-						<select size="1" name="chooseitem">
-							<option>Add New</option>
-							<option value="item1"> Item #1 </option>
-							<option value="item2"> Item #2 </option>
-							<option value="item3"> Item #3 </option>
+
+						<select onchange="window.location.href='admin_console.php?selected='+this.value+''">
+						<option value='AddNew' > Add New </option>
+						<?php
+						$query = "SELECT id, name FROM `product`;";
+						$result = $db->query($query);
+						$num_results = $result->num_rows;
+		
+						while($row = $result->fetch_assoc()){
+							$dropdown = $row['name'];
+							$itemid = $row['id'];
+
+							if($selected==$itemid){
+								echo '<option selected value='.$itemid.'>'.$dropdown.'</option>';
+							}
+							else{
+								echo '<option value='.$itemid.'>'.$dropdown.'</option>';
+							}
+						}
+						?>
 						</select>
 					</div>
-
 				</div>
 
 				<br>
 				<label id="description-label" for="description">Description:</label>
-				<textarea type="textarea" name="description" id="description" rows="2" cols="80"></textarea>
-
-			</form>
+				<textarea type="textarea"  name="description" id="description" rows="2" cols="92"><?php echo $selecteddescription; ?></textarea>
+	
+			
+			
 			<div class="form-btn-group">
 				<input type="button" value="Back">
-				<input type="submit" value="Submit">
+				<input type="submit" name="submit" value="Update">
+				<input type="submit" name="submit" value="Remove">
 			</div>
-
+</form>
 
 		</div>
 	</div>
