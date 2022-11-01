@@ -27,7 +27,7 @@
 <body>
     <!-- Navbar links -->
     <nav class="navbar">
-        <a class="logo" href="#">
+        <a class="logo" href="index.php">
             <img src="logo.png">
         </a>
         <div class="nav-item">
@@ -115,22 +115,30 @@
             <div class="footer-info-item">
                 <h3>Information</h3>
                 <ul class="list-unstyled">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Customer Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Sitemap</a></li>
-                    <li><a href="#">Orders &amp; Returns</a></li>
+                    <li><a href="aboutus.php">About Us</a></li>
+                    <li><a href="aboutus.php">Customer Service</a></li>
+                    <li><a href="privacy_notice.pdf" target="_blank">Privacy Policy</a></li>
+                    <li><a href="privacy_notice.pdf" target="_blank">Orders &amp; Returns</a></li>
                 </ul>
             </div>
             <div class="footer-info-item">
-                <h3>My Account</h3>
-                <ul class="list-unstyled">
-                    <li><a href="#">Sign In</a></li>
-                    <li><a href="#">View Cart</a></li>
-                    <li><a href="#">My Wishlist</a></li>
-                    <li><a href="#">Track My Order</a></li>
-                    <li><a href="#">Help</a></li>
-                </ul>
+                <?php
+                if(isset($_SESSION['user_id'])){
+                    echo '<h3>My Account</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="cart.php">View Cart</a></li>
+                        <li><a href="account_customer.php">Track My Order</a></li>
+                        <li><a href="aboutus.php">Help</a></li>
+                    </ul>';
+                }else{
+                    echo '<h3>My Account</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="login.php">View Cart</a></li>
+                        <li><a href="login.php">Track My Order</a></li>
+                        <li><a href="login.php">Help</a></li>
+                    </ul>';
+                }
+                ?>
             </div>
             <div class="footer-info-item">
                 <h3><span class=""></span> Newsletter</h3>
@@ -178,10 +186,10 @@
                 }
                 path = path + "&buy="+product_id;
                 el.innerHTML = "Added";
-                setTimeout(() => {
-                    document.cookie = "menu-scrollpos="+window.scrollY;
+                document.cookie = "menu-scrollpos="+window.scrollY;
+                setTimeout(function() {
                     window.location.href = path;
-                }, 1000)
+                }, 500);
             }
         }else{
             alert("Please login first");

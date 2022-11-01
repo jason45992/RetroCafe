@@ -480,7 +480,8 @@ footer a {
     position: sticky;
     top: 0;
     font-size: 20px;
-    max-height: 410px;
+    height: 50vh;
+    overflow-y: auto;
     margin: 50px;
     border-radius: 0px 0px 5px 5px;
     box-shadow: 0px 0px 7px 0px grey;
@@ -497,14 +498,12 @@ footer a {
 
 .checkout-summary .content {
     padding: 20px 10px;
-    height: 200px;
 }
 
 .checkout-summary .content .item {
     display: flex;
     border-bottom: 1px solid gray;
-    padding: 10px 0px;
-    justify-content: center;
+    padding: 10px 20px;
 }
 
 .checkout-summary .content .item .product-image img {
@@ -514,7 +513,7 @@ footer a {
 .checkout-summary .content .item .product-detail {
     padding: 0px 5px;
     font-size: 14px;
-    max-width: 160px;
+    width: 160px;
 }
 
 .checkout-summary .content .item .product-detail .product-title {
@@ -550,7 +549,7 @@ footer a {
 @media screen and (max-width: 500px) {
     .checkout-container {
         display: block;
-        height: 1000px;
+        height: 1100px;
         width: 600px;
         margin: auto;
     }
@@ -623,8 +622,9 @@ footer a {
 .confirm-container .checkout-summary{
     position: relative;
     width: 400px;
-    max-height: 450px;
+    height: 70vh;
     box-shadow: none;
+    overflow: auto;
 }
 
 .confirm-container .checkout-summary .header,
