@@ -23,13 +23,13 @@ if($_GET['submit'] == 'Update'){
 		//echo 'update';
 		$query = "UPDATE product SET modified_date=CURRENT_TIMESTAMP, category = '".$categoryNew."', name = '".$nameNew."', img_url = '".$imgurlNew."', price = '".$priceNew."', quantity = '".$quantityNew."', description = '".$descriptionNew."', visable = '".$visableNew."' WHERE id = '".$selectedid."';";
 		$result = $db->query($query);
-		echo "<script>alert('update message');</script>";
+		echo "<script>alert('Item information has been updated!');</script>";
 	}
 	else{
 		//echo 'insert';
 		$query = "INSERT INTO product SET modified_date=CURRENT_TIMESTAMP, category = '".$categoryNew."', name = '".$nameNew."', img_url = '".$imgurlNew."', price = '".$priceNew."', quantity = '".$quantityNew."', description = '".$descriptionNew."', visable = '".$visableNew."';";
 		$result = $db->query($query);
-		echo "<script>alert('insert message');</script>";
+		echo "<script>alert('New item has been added!');</script>";
 	}
 }
 
@@ -37,7 +37,7 @@ else{
 	// echo 'delete';
 	$query = "DELETE FROM product WHERE id = '".$selectedid."';";
 	$result = $db->query($query); 
-	echo "<script>alert('delete message');</script>";
+	echo "<script>alert('Item has been removed!');</script>";
 }
 echo "<script>location.href='admin_console.php';</script>";
 

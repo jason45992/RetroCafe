@@ -62,9 +62,9 @@
         <div class="banner">
             <img src="banner.jpg" alt="Banner">
             <div class="content">
-                <h1>Unique Craft Cafe in NYC</h1>
-                <p>Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus dolor. A lacus vestibulum sed
-                    arcu non. Dolor magna eget est lorem ipsum dolor sit amet consectetur.</p>
+                <h1>Unique Craft Cafe in SG</h1>
+                <p>Coffee is a lot more than just a drink; it's something happening.
+Not as in hip, but like an event, place to be, but not like a location, but like somewhere within yourself. It gives you time, but not actual hours or minutes, but a chance to be, like be yourself, and have a second cup.</p>
             </div>
         </div>
         <!-- Popular items -->

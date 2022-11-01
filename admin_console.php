@@ -205,7 +205,7 @@ $selectedimgurl='';
 			
 			
 			<div class="form-btn-group">
-				<input type="button" value="Back">
+				<input type="button" onclick="location.href ='account_admin.php'"value="Back">
 				<input type="submit" name="submit" value="Update">
 				<input type="submit" name="submit" value="Remove">
 			</div>
