@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 28, 2022 at 01:04 PM
+-- Generation Time: Nov 01, 2022 at 07:46 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -45,7 +45,13 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `first_name`, `last_name`, `contact_number`, `postal_code`, `address`, `amount`, `status`, `datetime`) VALUES
-(1, 2, 'Albert', 'Tan', 62120196, 48423, '18 Cross Street #12-01/08 China Square Central', 67, 'Processing', '2022-10-28 10:48:11');
+(1, 2, 'Albert', 'Tan', 62120196, 48423, '18 Cross Street #12-01/08 China Square Central', 67, 'Processing', '2022-10-28 10:48:11'),
+(2, 2, 'Albert', 'Tan', 65541245, 54235, 'Goldhill Centre 51 Thomson Road', 25.44, 'Processing', '2022-10-29 16:23:12'),
+(3, 2, 'Albert', 'Tan', 64754227, 404040, 'Unity Centre, 51 Bukit Batok Crescent, #05-04', 41.81, 'Processing', '2022-10-29 16:54:16'),
+(4, 4, 'JASON', 'WANG', 87562154, 238855, '260 Orchard Road, The Heeren ,04-30/31', 13.03, 'Processing', '2022-10-29 16:56:07'),
+(5, 4, 'Jason', 'Wang', 8754212, 636866, '38 Nanyang Crescent Road', 12.7, 'Processing', '2022-10-30 01:29:40'),
+(6, 4, 'Bo', 'Wang', 87556655, 455334, 'St Ln', 108.9, 'Processing', '2022-10-30 19:42:55'),
+(7, 4, 'Jason', 'Wang', 87516543, 51152, '38 Nanyang Crescent Road', 12.7, 'Processing', '2022-11-01 00:02:09');
 
 -- --------------------------------------------------------
 
@@ -58,6 +64,30 @@ CREATE TABLE `order_items` (
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`order_id`, `product_id`, `quantity`) VALUES
+(2, 1, 1),
+(2, 19, 2),
+(3, 4, 3),
+(3, 7, 1),
+(3, 15, 1),
+(4, 4, 1),
+(5, 18, 1),
+(6, 1, 1),
+(6, 5, 2),
+(6, 6, 1),
+(6, 8, 4),
+(6, 10, 1),
+(6, 11, 1),
+(6, 12, 1),
+(6, 13, 1),
+(6, 15, 1),
+(6, 18, 1),
+(7, 18, 1);
 
 -- --------------------------------------------------------
 
@@ -124,7 +154,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `is_admin`) VALUES
 (1, 'Jason Wang', 'jasonwang', 'jasonw@localhost', '123456', 1),
 (2, 'Albert Tan', 'albert.tan', 'albert.tan@gmail.com', '123456', 0),
-(3, 'Cong Cong', 'cong.cong', 'cong.c@gmail.com', '123456', 0);
+(3, 'Cong Cong', 'cong.cong', 'cong.c@gmail.com', '123456', 0),
+(4, 'test customer', 'test_customer', 'abc@abc', '123456', 0);
 
 --
 -- Indexes for dumped tables
@@ -164,7 +195,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -176,7 +207,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
