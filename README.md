@@ -12,7 +12,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/jason45992/RetroCafe">
-    <img src="RetroCafe/logo_dark.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/jason45992/RetroCafe/blob/main/logo_dark.png" alt="Logo" width="200">
   </a>
 
   <h3 align="center">Retro Café</h3>
