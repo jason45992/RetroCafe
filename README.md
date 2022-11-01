@@ -18,7 +18,7 @@
   <h3 align="center">Retro Café</h3>
 
   <p align="center">
-    School Project - Online coffee & food ordering system
+   <small>SCHOOL PROJECT IE4717-WEB APPLICATION DESIGN</small><br /><b>Online coffee & food ordering system</b>
     <br />
     <br />
     <a href="https://github.com/jason45992/RetroCafe">View Demo</a>
@@ -46,12 +46,10 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -70,7 +68,7 @@ To ensure the platform environment’s safety, registering will be needed for ma
 
 ### Built With
 
-Our project is build in pure html, css, php and MariaDB.
+Our project is built with pure html, css, php and MariaDB.
 
 
 <!-- GETTING STARTED -->
