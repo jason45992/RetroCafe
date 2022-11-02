@@ -1,5 +1,6 @@
 <?php
   session_start();
+  $is_edit = $_GET['edit'];
   $user_id = $_SESSION['user_id'];
   $user_name = $_SESSION['user_name'];
   $user_user_name = $_SESSION['user_user_name'];
@@ -65,13 +66,26 @@
 		<h1>My Account</h1><br><br>
 
 		<div id="account_content">
-			<h3>Personal Information</h3>
+			<h2>Personal Information</h2>
 			<hr>
 			<?php
-				echo '<label><b>Name:</b> '.$user_name.'</label><br><label><b>Username:</b> '.$user_user_name.'</label><br><label><b>Email:</b> '.$user_email.'</label><br><br>';
+                if(isset($is_edit)){
+                    echo '<form action="user_profile_update.php" method="get">
+                            <label><b>Name: </b><input name="name" value="'.$user_name.'" required></input></label><br>
+                            <label><b>Username: </b><input name="username" value="'.$user_user_name.'" required></input></label><br>
+                            <label><b>Email: </b>'.$user_email.'</label><br>
+                            <div class="logout">
+                            <input type="button" onclick="location.href=\'account_customer.php\'" value="Cancel"></input>
+                            <input type="submit"></input>
+                            </div>
+                        </form>';
+                } else {
+                    echo '<div><label><b>Name:</b> '.$user_name.'</label><br><label><b>Username:</b> '.$user_user_name.'</label><br><label><b>Email:</b> '.$user_email.'</label></div><br><br><div class="edit" onclick="location.href=\'account_customer.php?edit=true\'"><button>Edit</button></div>';
+                }
 			?>
+            
 
-			<h3>Order History</h3>
+			<h2>Order History</h2>
 			<hr>
 			<?php	
 				// estabilish new db connection
