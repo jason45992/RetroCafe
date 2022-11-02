@@ -14,6 +14,7 @@
     <title>Retro Café</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.2.0/css/all.css">
     <link href="styles.css" rel="stylesheet">
+    <script type="text/javascript" src="phonenumber.js"></script>
 </head>
 
 <body>
@@ -82,7 +83,7 @@
                 <div class="form-row">
                     <div>
                         <label for="contactnum">Contact Number</label>
-                        <input type="text" id="contactnum" name="contactnum" placeholder="Your contact number.." required>
+                        <input type="text" id="contactnum" name="contactnum" placeholder required="Your contact number.." onchange="validateNumber()">
                     </div>
                     <div>
                         <label for="postalcode">Postal Code</label>
