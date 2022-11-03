@@ -210,13 +210,13 @@ input[type=text] {
 }
 
 /*Admin Console Page*/
-#adminConsole_content>table {
+#table_content>table {
 	width: 100%;
 	margin: auto;
 }
 
-#adminConsole_content>table th:nth-child(3),
-#adminConsole_content>table td:nth-child(3){
+#table_content>table th:nth-child(3),
+#table_content>table td:nth-child(3){
     width: 300px;
     overflow-wrap: anywhere;
 }
