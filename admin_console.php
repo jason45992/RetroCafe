@@ -31,6 +31,7 @@ $selectedimgurl='';
 	<meta charset="ut£-8">
 	<link rel="stylesheet" href="mystyle.css">
 	<link href="styles.css" rel="stylesheet">
+	<script type="text/javascript" src="number.js"></script>
 </head>
 
 <body>
@@ -147,7 +148,7 @@ $selectedimgurl='';
 
 					<div>
 					<label for="price">Price:</label>
-					<input type="number" min="0" value="<?php echo $selectedprice; ?>" name="price" id="price">
+					<input type="text" min="0" value="<?php echo $selectedprice; ?>" name="price" id="price" onchange="validatePrice()">
 					</div>
 
 					<div>
@@ -158,19 +159,10 @@ $selectedimgurl='';
 					<div>
 						<label class="radio-header">Visable:</label>
 						<div class="radio-grp">
-
-					
-							<input type="radio" name="visable" value="1" checked="checked"
-							<?php if ($selectedvisable == 1): ?>
-               checked="checked"
-			   <?php endif ?>>True<br>
-			   <input type="radio" name="visable" value="0"
-							<?php if ($selectedvisable == 0): ?>
-               checked="checked"
-			   <?php endif ?>>False<br>
-			   
-
-
+							<input type="radio" name="visable" value="1" checked="checked"<?php if ($selectedvisable == 1): ?> checked="checked" <?php endif ?>>
+							<label>True</label>
+							<input type="radio" name="visable" value="0" <?php if ($selectedvisable == 0): ?> checked="checked" <?php endif ?>>
+							<label>False</label>
 						</div>
 					</div>
 		

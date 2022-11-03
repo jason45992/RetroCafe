@@ -254,12 +254,13 @@ textarea {
 .radio-grp {
 	display: flex;
 	margin-top: auto;
-	width: 80px;
+	width: 90px;
 }
 
 .radio-grp input {
 	margin-top: 12px;
 }
+
 
 .form-dropdown select {
 	width: 150px;

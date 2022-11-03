@@ -14,7 +14,7 @@
     <title>Retro Café</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.2.0/css/all.css">
     <link href="styles.css" rel="stylesheet">
-    <script type="text/javascript" src="phonenumber.js"></script>
+    <script type="text/javascript" src="number.js"></script>
 </head>
 
 <body>
