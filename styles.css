@@ -384,6 +384,10 @@ footer a {
     font-size: 18px;
 }
 
+.menu-item button.out-stock {
+    background-color: #a7a7a7;
+}
+
 .menu-item button:hover {
     opacity: 0.7;
 }

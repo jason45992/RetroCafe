@@ -100,7 +100,11 @@
                     if(empty($user_id)){
                         echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2><p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p><p><button onclick="addToCart(0,'.$row['id'].',\''.$row['name'].'\',this);">Add to Cart</button></p></div>';
                     }else{
-                        echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2><p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p><p><button onclick="addToCart(1,'.$row['id'].',\''.$row['name'].'\',this);">Add to Cart</button></p></div>';
+                        if($row['quantity'] > 0){
+                            echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2><p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p><p><button onclick="addToCart(1,'.$row['id'].',\''.$row['name'].'\',this);">Add to Cart</button></p></div>';
+                        } else {
+                            echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2><p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p><p><button class="out-stock"">Out of Stock</button></p></div>';
+                        }
                     }
 				}
 			}else{
