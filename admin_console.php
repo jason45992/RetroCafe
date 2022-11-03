@@ -71,7 +71,7 @@ $selectedimgurl='';
 		<h1>Admin Console</h1>
 
 		<div id="adminConsole_content">
-			
+			<div id="table_content">
 				<?php	
 				$query = "SELECT id, category, name, img_url, description, price, quantity, visable, modified_date FROM `product`;";
 				$result = $db->query($query);
@@ -115,6 +115,7 @@ $selectedimgurl='';
 				echo '</table>';
 			}
 			?>
+			</div>
 
 			<form action="admin_console_info_update.php" method="get">
 
