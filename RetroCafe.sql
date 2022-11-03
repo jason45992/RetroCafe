@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 01, 2022 at 07:46 AM
+-- Generation Time: Nov 03, 2022 at 07:11 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -45,13 +45,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `first_name`, `last_name`, `contact_number`, `postal_code`, `address`, `amount`, `status`, `datetime`) VALUES
-(1, 2, 'Albert', 'Tan', 62120196, 48423, '18 Cross Street #12-01/08 China Square Central', 67, 'Processing', '2022-10-28 10:48:11'),
-(2, 2, 'Albert', 'Tan', 65541245, 54235, 'Goldhill Centre 51 Thomson Road', 25.44, 'Processing', '2022-10-29 16:23:12'),
-(3, 2, 'Albert', 'Tan', 64754227, 404040, 'Unity Centre, 51 Bukit Batok Crescent, #05-04', 41.81, 'Processing', '2022-10-29 16:54:16'),
-(4, 4, 'JASON', 'WANG', 87562154, 238855, '260 Orchard Road, The Heeren ,04-30/31', 13.03, 'Processing', '2022-10-29 16:56:07'),
-(5, 4, 'Jason', 'Wang', 8754212, 636866, '38 Nanyang Crescent Road', 12.7, 'Processing', '2022-10-30 01:29:40'),
-(6, 4, 'Bo', 'Wang', 87556655, 455334, 'St Ln', 108.9, 'Processing', '2022-10-30 19:42:55'),
-(7, 4, 'Jason', 'Wang', 87516543, 51152, '38 Nanyang Crescent Road', 12.7, 'Processing', '2022-11-01 00:02:09');
+(1, 2, 'Mengyuan', 'Zhang', 89499434, 126756, '93 West Coast Vale, Twin Vew', 55.61, 'Processing', '2022-11-04 02:04:12'),
+(2, 2, 'Mengyuan', 'Zhang', 89499434, 126756, '93 West Coast Vale, Twin Vew', 41.49, 'Processing', '2022-11-04 02:04:40'),
+(3, 2, 'Mengyuan', 'Zhang', 89499434, 126756, '93 West Coast Vale, Twin Vew', 18.7, 'Processing', '2022-11-04 02:05:10'),
+(4, 2, 'Mengyuan', 'Zhang', 89499434, 126756, '93 West Coast Vale, Twin Vew', 23.19, 'Processing', '2022-11-04 02:06:40');
 
 -- --------------------------------------------------------
 
@@ -70,24 +67,20 @@ CREATE TABLE `order_items` (
 --
 
 INSERT INTO `order_items` (`order_id`, `product_id`, `quantity`) VALUES
-(2, 1, 1),
-(2, 19, 2),
-(3, 4, 3),
+(1, 1, 1),
+(1, 3, 2),
+(1, 4, 1),
+(1, 7, 1),
+(1, 8, 1),
+(2, 3, 1),
+(2, 4, 1),
+(2, 17, 1),
+(2, 18, 1),
+(2, 19, 1),
 (3, 7, 1),
-(3, 15, 1),
-(4, 4, 1),
-(5, 18, 1),
-(6, 1, 1),
-(6, 5, 2),
-(6, 6, 1),
-(6, 8, 4),
-(6, 10, 1),
-(6, 11, 1),
-(6, 12, 1),
-(6, 13, 1),
-(6, 15, 1),
-(6, 18, 1),
-(7, 18, 1);
+(3, 8, 1),
+(4, 2, 1),
+(4, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -112,8 +105,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `category`, `name`, `img_url`, `description`, `price`, `quantity`, `visable`, `modified_date`) VALUES
-(1, 'cake', 'TIRAMISU CAKE', 'https://images01.nicepage.com/c461c07a441a5d220e8feb1a/2f3a74b06285575ab76bf4fb/1.jpg', 'It is made of ladyfingers dipped in coffee, layered with a whipped mixture of eggs, sugar, and cheese, flavored with cocoa.', 9.9, 10, 1, '2022-10-28 10:10:29'),
-(2, 'cake', 'CHIA PUDDING', 'https://images01.nicepage.com/c461c07a441a5d220e8feb1a/ab84de2ad5735d628d59ed26/2.jpg', 'This 3-Ingredient Chia Pudding is made with almond milk, chia seeds & sweetener of choice', 8.9, 10, 1, '2022-10-28 10:10:29'),
+(1, 'cake', 'TIRAMISU CAKE', 'https://images01.nicepage.com/c461c07a441a5d220e8feb1a/2f3a74b06285575ab76bf4fb/1.jpg', 'It is made of ladyfingers dipped in coffee, layered with a whipped mixture of eggs, sugar, and cheese, flavored with cocoa.', 12, 4, 1, '2022-11-04 01:51:56'),
+(2, 'cake', 'CHIA PUDDING', 'https://images01.nicepage.com/c461c07a441a5d220e8feb1a/ab84de2ad5735d628d59ed26/2.jpg', 'This 3-Ingredient Chia Pudding is made with almond milk, chia seeds & sweetener of choice', 9.9, 12, 0, '2022-10-30 00:51:46'),
 (3, 'cake', 'CHEESECAKE', 'https://images01.nicepage.com/c461c07a441a5d220e8feb1a/0af96baec95b56e6842e9bbd/4.jpg', 'It consists of a thick, creamy filling of cheese, eggs, and sugar over a thinner crust and topped with sweet or sometimes salty items.', 7.5, 10, 1, '2022-10-28 10:30:29'),
 (4, 'cake', 'CHOCOLATE CAKE', 'https://images01.nicepage.com/c461c07a441a5d220e8feb1a/27ba1863cf0252319fb18a31/677u.jpg', 'Chocolate cake or chocolate gâteau is a cake flavored with melted chocolate, cocoa powder, or both. ', 7.5, 10, 1, '2022-10-28 10:37:44'),
 (5, 'cake', 'CHEESECAKE', 'https://images01.nicepage.com/c461c07a441a5d220e8feb1a/4dbe427549b7580ead405557/7.jpg', 'It consists of a thick, creamy filling of cheese, eggs, and sugar over a thinner crust and topped with sweet or sometimes salty items.', 7.8, 10, 1, '2022-10-28 10:38:49'),
@@ -129,8 +122,8 @@ INSERT INTO `product` (`id`, `category`, `name`, `img_url`, `description`, `pric
 (15, 'coffee', 'BREWED CAFFE', 'https://i.postimg.cc/xC2cXz1y/9.png', 'Enjoy our rich, flavorful brewed coffees any time of the day.Easy-drinking on its own and delicious with milk and sugar.', 4.8, 10, 1, '2022-10-28 11:36:25'),
 (16, 'coffee', 'FLAT WHITE', 'https://i.postimg.cc/ydm3jTbb/10.png', 'Bold shots of espresso get the perfect amount of steamed whole milk to create a just right flavor.', 7.9, 10, 1, '2022-10-28 11:36:25'),
 (17, 'coffee', 'ICED LATTE', 'https://i.postimg.cc/fR13hF4P/13.png', 'A blend of blonde espresso with creamy oatmilk, brown sugar and a hint of cinnamon for rich layers of deliciousness', 8.3, 10, 1, '2022-10-28 11:36:25'),
-(18, 'coffee', 'OAT LATTE', 'https://i.postimg.cc/YCv4Z7Pg/15.png', 'Our dark, rich espresso balanced with steamed milk and a light layer of foam. A perfect milk forward iced.', 7.2, 10, 1, '2022-10-28 11:36:25'),
-(19, 'coffee', 'COLD BREW', 'https://i.postimg.cc/j54CPSW-V/18.png', 'Enjoy our rich, flavorful brewed coffees any time of the day.\r\nEasy-drinking on its own and delicious with milk and sugar.', 4.6, 10, 1, '2022-10-28 11:36:25');
+(18, 'coffee', 'OAT LATTE', 'https://i.postimg.cc/BQt8QNGK/121.png', 'Our dark, rich espresso balanced with steamed milk and a light layer of foam. A perfect milk forward iced.', 7.2, 10, 1, '2022-10-28 11:36:25'),
+(19, 'coffee', 'COLD BREW', 'https://i.postimg.cc/j54CPSW-V/18.png', 'Enjoy our rich, flavorful brewed coffees any time of the day.\r\nEasy-drinking on its own and delicious with milk and sugar.', 3.6, 9, 1, '2022-10-29 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -153,9 +146,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `is_admin`) VALUES
 (1, 'Jason Wang', 'jasonwang', 'jasonw@localhost', '123456', 1),
-(2, 'Albert Tan', 'albert.tan', 'albert.tan@gmail.com', '123456', 0),
-(3, 'Cong Cong', 'cong.cong', 'cong.c@gmail.com', '123456', 0),
-(4, 'test customer', 'test_customer', 'abc@abc', '123456', 0);
+(2, 'Zhang Mengyuan', 'Mengyuan', 'mengyuan@gmail.com', '123456', 0);
 
 --
 -- Indexes for dumped tables
@@ -195,19 +186,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
