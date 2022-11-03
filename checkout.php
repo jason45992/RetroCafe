@@ -83,7 +83,7 @@
                 <div class="form-row">
                     <div>
                         <label for="contactnum">Contact Number</label>
-                        <input type="text" id="contactnum" name="contactnum" placeholder required="Your contact number.." onchange="validateNumber()">
+                        <input type="text" id="contactnum" name="contactnum" placeholder="Your contact number.." required onchange="validateNumber()">
                     </div>
                     <div>
                         <label for="postalcode">Postal Code</label>
