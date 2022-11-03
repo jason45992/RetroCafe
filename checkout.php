@@ -189,14 +189,14 @@
             </div>
             <div class="footer-info-item">
                 <?php
-                if(isset($_SESSION['user_id'])){
+                if((isset($_SESSION['user_id'])) && ($_SESSION['user_is_admin'] == 0) ){
                     echo '<h3>My Account</h3>
                     <ul class="list-unstyled">
                         <li><a href="cart.php">View Cart</a></li>
                         <li><a href="account_customer.php">Track My Order</a></li>
                         <li><a href="aboutus.php">Help</a></li>
                     </ul>';
-                }else{
+                }else if($_SESSION['user_is_admin'] == 0){
                     echo '<h3>My Account</h3>
                     <ul class="list-unstyled">
                         <li><a href="login.php">View Cart</a></li>
