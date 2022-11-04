@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 03, 2022 at 07:11 PM
+-- Generation Time: Nov 04, 2022 at 04:47 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -45,10 +45,14 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `first_name`, `last_name`, `contact_number`, `postal_code`, `address`, `amount`, `status`, `datetime`) VALUES
-(1, 2, 'Mengyuan', 'Zhang', 89499434, 126756, '93 West Coast Vale, Twin Vew', 55.61, 'Processing', '2022-11-04 02:04:12'),
-(2, 2, 'Mengyuan', 'Zhang', 89499434, 126756, '93 West Coast Vale, Twin Vew', 41.49, 'Processing', '2022-11-04 02:04:40'),
-(3, 2, 'Mengyuan', 'Zhang', 89499434, 126756, '93 West Coast Vale, Twin Vew', 18.7, 'Processing', '2022-11-04 02:05:10'),
-(4, 2, 'Mengyuan', 'Zhang', 89499434, 126756, '93 West Coast Vale, Twin Vew', 23.19, 'Processing', '2022-11-04 02:06:40');
+(1, 3, 'Test', 'Test', 87654321, 123456, '93 West Coast Vale, Twin Vew', 71.02, 'Delivered', '2022-11-04 10:33:46'),
+(2, 3, 'Test', 'Test', 87235298, 126756, '93 West Coast Vale, Twin Vew', 40.52, 'Delivered', '2022-11-04 10:34:22'),
+(3, 3, 'Test', 'Test', 89499434, 126756, '93 West Coast Vale, Twin Vew', 31.64, 'Delivered', '2022-11-04 10:36:09'),
+(4, 3, 'Test', 'Zhang', 89499434, 126756, '93 West Coast Vale, Twin Vew', 37.42, 'Shipped', '2022-11-04 10:36:47'),
+(5, 3, 'Test', 'Wang', 89499434, 126756, '93 West Coast Vale, Twin Vew', 61.18, 'Shipped', '2022-11-04 10:37:36'),
+(6, 3, 'Test', 'Test', 89499434, 126756, '93 West Coast Vale, Twin Vew', 19.12, 'Processing', '2022-11-04 10:38:19'),
+(7, 3, 'Test', 'Test', 89499434, 126756, '93 West Coast Vale, Twin Vew', 13.03, 'Processing', '2022-11-04 10:39:05'),
+(8, 3, 'test', 'Test', 89499434, 126756, '93 West Coast Vale, Twin Vew', 23.62, 'Processing', '2022-11-04 11:31:49');
 
 -- --------------------------------------------------------
 
@@ -67,20 +71,34 @@ CREATE TABLE `order_items` (
 --
 
 INSERT INTO `order_items` (`order_id`, `product_id`, `quantity`) VALUES
-(1, 1, 1),
-(1, 3, 2),
+(1, 1, 2),
+(1, 2, 1),
+(1, 3, 1),
 (1, 4, 1),
 (1, 7, 1),
 (1, 8, 1),
-(2, 3, 1),
-(2, 4, 1),
-(2, 17, 1),
-(2, 18, 1),
-(2, 19, 1),
-(3, 7, 1),
-(3, 8, 1),
-(4, 2, 1),
-(4, 7, 1);
+(2, 2, 1),
+(2, 6, 1),
+(2, 10, 2),
+(3, 2, 1),
+(3, 3, 1),
+(3, 4, 1),
+(4, 6, 1),
+(4, 7, 1),
+(4, 10, 1),
+(4, 11, 1),
+(5, 4, 1),
+(5, 6, 1),
+(5, 8, 1),
+(5, 10, 1),
+(5, 11, 1),
+(5, 13, 1),
+(5, 17, 1),
+(6, 4, 1),
+(6, 8, 1),
+(7, 3, 1),
+(8, 2, 1),
+(8, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -105,7 +123,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `category`, `name`, `img_url`, `description`, `price`, `quantity`, `visable`, `modified_date`) VALUES
-(1, 'cake', 'TIRAMISU CAKE', 'https://images01.nicepage.com/c461c07a441a5d220e8feb1a/2f3a74b06285575ab76bf4fb/1.jpg', 'It is made of ladyfingers dipped in coffee, layered with a whipped mixture of eggs, sugar, and cheese, flavored with cocoa.', 12, 4, 1, '2022-11-04 01:51:56'),
+(1, 'cake', 'TIRAMISU CAKE', 'https://images01.nicepage.com/c461c07a441a5d220e8feb1a/2f3a74b06285575ab76bf4fb/1.jpg', 'It is made of ladyfingers dipped in coffee, layered with a whipped mixture of eggs, sugar, and cheese, flavored with cocoa.', 9.9, 3, 1, '2022-11-04 11:22:01'),
 (2, 'cake', 'CHIA PUDDING', 'https://images01.nicepage.com/c461c07a441a5d220e8feb1a/ab84de2ad5735d628d59ed26/2.jpg', 'This 3-Ingredient Chia Pudding is made with almond milk, chia seeds & sweetener of choice', 9.9, 12, 0, '2022-10-30 00:51:46'),
 (3, 'cake', 'CHEESECAKE', 'https://images01.nicepage.com/c461c07a441a5d220e8feb1a/0af96baec95b56e6842e9bbd/4.jpg', 'It consists of a thick, creamy filling of cheese, eggs, and sugar over a thinner crust and topped with sweet or sometimes salty items.', 7.5, 10, 1, '2022-10-28 10:30:29'),
 (4, 'cake', 'CHOCOLATE CAKE', 'https://images01.nicepage.com/c461c07a441a5d220e8feb1a/27ba1863cf0252319fb18a31/677u.jpg', 'Chocolate cake or chocolate gâteau is a cake flavored with melted chocolate, cocoa powder, or both. ', 7.5, 10, 1, '2022-10-28 10:37:44'),
@@ -146,7 +164,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `is_admin`) VALUES
 (1, 'Jason Wang', 'jasonwang', 'jasonw@localhost', '123456', 1),
-(2, 'Zhang Mengyuan', 'Mengyuan', 'mengyuan@gmail.com', '123456', 0);
+(2, 'Zhang Mengyuan', 'Mengyuan', 'mengyuan@gmail.com', '123456', 1),
+(3, 'Test', 'Test W', 'test@gmail.com', '123456', 0);
 
 --
 -- Indexes for dumped tables
@@ -186,7 +205,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -198,7 +217,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

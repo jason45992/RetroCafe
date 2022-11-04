@@ -26,7 +26,6 @@
 
     //create new order
     $query = "insert into orders values (NULL, '".$user_id."', '".$firstname."', '".$lastname."', '".$contactnum."', '".$postalcode."', '".$address."', '".$amount."', 'Processing', '".$datetime."');";
-    echo $query;
     $result = $db->query($query);
 
     //get order id just created
