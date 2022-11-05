@@ -1,9 +1,21 @@
 <?php
   session_start();
-  $user_id = $_SESSION['user_id'];
-  $user_name = $_SESSION['user_name'];
-  $user_is_admin = $_SESSION['user_is_admin'];
-  $cart_list = $_SESSION['cart'];
+  $user_id="";
+  if(isset($_SESSION['user_id'])){
+    $user_id = $_SESSION['user_id'];
+  }
+  $user_name="";
+  if(isset($_SESSION['user_name'])){
+    $user_name = $_SESSION['user_name'];
+  }
+  $user_is_admin="";
+  if(isset($_SESSION['user_is_admin'])){
+    $user_is_admin = $_SESSION['user_is_admin'];
+    }
+  $cart_list=[];
+  if(isset($_SESSION['cart'])){
+    $cart_list = $_SESSION['cart'];
+    }
   if(isset($_GET['removeItem'])){
     foreach (array_keys($cart_list, $_GET['removeItem']) as $key) {
         unset($cart_list[$key]);
@@ -202,7 +214,7 @@
                         <li><a href="account_customer.php">Track My Order</a></li>
                         <li><a href="aboutus.php">Help</a></li>
                     </ul>';
-                }else if($_SESSION['user_is_admin'] == 0){
+                }else if(empty($_SESSION['user_id'])){
                     echo '<h3>My Account</h3>
                     <ul class="list-unstyled">
                         <li><a href="login.php">View Cart</a></li>

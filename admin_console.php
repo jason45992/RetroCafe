@@ -1,8 +1,17 @@
 <?php
   session_start();
-  $user_id = $_SESSION['user_id'];
-  $user_name = $_SESSION['user_name'];
-  $user_is_admin = $_SESSION['user_is_admin'];
+  $user_id="";
+  if(isset($_SESSION['user_id'])){
+    $user_id = $_SESSION['user_id'];
+  }
+  $user_name="";
+  if(isset($_SESSION['user_name'])){
+    $user_name = $_SESSION['user_name'];
+  }
+  $user_is_admin="";
+  if(isset($_SESSION['user_is_admin'])){
+    $user_is_admin = $_SESSION['user_is_admin'];
+    }
 
 // estabilish new db connection
 @ $db = new mysqli('localhost', 'root', '','RetroCafe');
@@ -12,8 +21,10 @@ if (mysqli_connect_errno()) {
 	echo 'Error: Could not connect to database.  Please try again later.';
 	exit;
 }
-
-$selected=$_GET['selected'];
+$selected="";
+if(isset($_GET['selected'])){
+	$selected=$_GET['selected'];
+}
 $selectedname='';
 $selectedprice='';
 $selectedquantity='';
@@ -228,7 +239,7 @@ $selectedimgurl='';
                         <li><a href="account_customer.php">Track My Order</a></li>
                         <li><a href="aboutus.php">Help</a></li>
                     </ul>';
-                }else if($_SESSION['user_is_admin'] == 0){
+                }else if(empty($_SESSION['user_id'])){
                     echo '<h3>My Account</h3>
                     <ul class="list-unstyled">
                         <li><a href="login.php">View Cart</a></li>

@@ -1,9 +1,18 @@
 <?php
   session_start();
-  $user_id = $_SESSION['user_id'];
-  $user_name = $_SESSION['user_name'];
+  $user_id="";
+  if(isset($_SESSION['user_id'])){
+    $user_id = $_SESSION['user_id'];
+  }
+  $user_name="";
+  if(isset($_SESSION['user_name'])){
+    $user_name = $_SESSION['user_name'];
+  }
   $user_email = $_SESSION['user_email'];
-  $user_is_admin = $_SESSION['user_is_admin'];
+  $user_is_admin="";
+  if(isset($_SESSION['user_is_admin'])){
+    $user_is_admin = $_SESSION['user_is_admin'];
+    }
   $orderid = $_GET['orderid']; 
 ?>
 
@@ -73,7 +82,7 @@
                          echo 'Error: Could not connect to database.  Please try again later.';
                          exit;
                      }
-                     $query = "SELECT product.name, product.img_url, product.price, order_items.quantity, orders.amount FROM product, orders, order_items WHERE order_items.order_id = orders.id and order_items.product_id = product.id AND orders.id = '".$orderid."'";
+                     $query = "SELECT product.name, product.img_url, product.price, product.description, order_items.quantity, orders.amount FROM product, orders, order_items WHERE order_items.order_id = orders.id and order_items.product_id = product.id AND orders.id = '".$orderid."'";
                      $result = $db->query($query);
                      $sub_total = 0;
                      $total = 0;
@@ -165,7 +174,7 @@
                         <li><a href="account_customer.php">Track My Order</a></li>
                         <li><a href="aboutus.php">Help</a></li>
                     </ul>';
-                }else if($_SESSION['user_is_admin'] == 0){
+                }else if(empty($_SESSION['user_id'])){
                     echo '<h3>My Account</h3>
                     <ul class="list-unstyled">
                         <li><a href="login.php">View Cart</a></li>
@@ -196,8 +205,8 @@
 
 <!-- send email -->
 <?php
-require "/Applications/XAMPP/xamppfiles/htdocs/mail_patch.php";
-use function mail_patch\mail;
+// require "/Applications/XAMPP/xamppfiles/htdocs/mail_patch.php";
+// use function mail_patch\mail;
 $to      = $user_email;
 $subject = 'Thank you for your order!';
 $htmlContent = file_get_contents('email_template.html');
@@ -207,9 +216,11 @@ $htmlContent = updateCustomerInfo($user_name, $shipping_address, $sub_total, $to
 //add items info
 $item_info = "";
 foreach($product_list as $x => $x_value) {
-    $sub_price = $x_value['price'] * $x_value['quantity'];
-    $sub_price = number_format((float)$sub_price, 2, '.', '');
-    $item_info .= addItemInfo($x_value['img_url'], $x_value['name'], $x_value['quantity'],$x_value['description'], $sub_price);
+    if(isset($x_value['description'])){
+        $sub_price = $x_value['price'] * $x_value['quantity'];
+        $sub_price = number_format((float)$sub_price, 2, '.', '');
+        $item_info .= addItemInfo($x_value['img_url'], $x_value['name'], $x_value['quantity'],$x_value['description'], $sub_price);
+    }
 }
 $htmlContent = str_replace("item_info",$item_info, $htmlContent);
 

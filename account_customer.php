@@ -1,12 +1,27 @@
 <?php
   session_start();
-  $is_edit = $_GET['edit'];
-  $user_id = $_SESSION['user_id'];
-  $user_name = $_SESSION['user_name'];
+  $is_edit = "";
+  if(isset($_GET['edit'])){
+    $is_edit = $_GET['edit'];
+  }
+  $user_id="";
+  if(isset($_SESSION['user_id'])){
+    $user_id = $_SESSION['user_id'];
+  }
+  $user_name="";
+  if(isset($_SESSION['user_name'])){
+    $user_name = $_SESSION['user_name'];
+  }
   $user_user_name = $_SESSION['user_user_name'];
   $user_email= $_SESSION['user_email'];
-  $user_is_admin = $_SESSION['user_is_admin'];
-  $cart_list = $_SESSION['cart'];
+  $user_is_admin="";
+  if(isset($_SESSION['user_is_admin'])){
+    $user_is_admin = $_SESSION['user_is_admin'];
+    }
+  $cart_list="";
+  if(isset($_SESSION['cart'])){
+    $cart_list = $_SESSION['cart'];
+    }
   if (isset($_COOKIE['menu-scrollpos'])) {
     setcookie("menu-scrollpos", 0, time() + (86400 * 30));
   }
@@ -69,7 +84,9 @@
 			<h2>Personal Information</h2>
 			<hr>
 			<?php
-                if(isset($is_edit)){
+                if(empty($is_edit)){
+                    echo '<div><label><b>Name:</b> '.$user_name.'</label><br><label><b>Username:</b> '.$user_user_name.'</label><br><label><b>Email:</b> '.$user_email.'</label></div><br><br><div class="edit" onclick="location.href=\'account_customer.php?edit=true\'"><button>Edit</button></div>';
+                } else {
                     echo '<form action="user_profile_update.php" method="get">
                             <label><b>Name: </b><input name="name" value="'.$user_name.'" required></input></label><br>
                             <label><b>Username: </b><input name="username" value="'.$user_user_name.'" required></input></label><br>
@@ -79,8 +96,6 @@
                             <input type="submit"></input>
                             </div>
                         </form>';
-                } else {
-                    echo '<div><label><b>Name:</b> '.$user_name.'</label><br><label><b>Username:</b> '.$user_user_name.'</label><br><label><b>Email:</b> '.$user_email.'</label></div><br><br><div class="edit" onclick="location.href=\'account_customer.php?edit=true\'"><button>Edit</button></div>';
                 }
 			?>
             
@@ -139,7 +154,7 @@
                         <li><a href="account_customer.php">Track My Order</a></li>
                         <li><a href="aboutus.php">Help</a></li>
                     </ul>';
-                }else if($_SESSION['user_is_admin'] == 0){
+                }else if(empty($_SESSION['user_id'])){
                     echo '<h3>My Account</h3>
                     <ul class="list-unstyled">
                         <li><a href="login.php">View Cart</a></li>

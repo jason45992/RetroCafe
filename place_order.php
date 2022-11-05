@@ -1,9 +1,21 @@
 <?php
     session_start();
+    $user_id="";
+  if(isset($_SESSION['user_id'])){
     $user_id = $_SESSION['user_id'];
+  }
+    $user_name="";
+  if(isset($_SESSION['user_name'])){
     $user_name = $_SESSION['user_name'];
+  }
+    $user_is_admin="";
+  if(isset($_SESSION['user_is_admin'])){
     $user_is_admin = $_SESSION['user_is_admin'];
+    }
+    $cart_list="";
+  if(isset($_SESSION['cart'])){
     $cart_list = $_SESSION['cart'];
+    }
     $amount = $_SESSION['total']; 
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];

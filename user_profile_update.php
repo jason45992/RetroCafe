@@ -2,7 +2,10 @@
 session_start();
 $name = $_GET["name"];
 $username = $_GET["username"];
-$user_id = $_SESSION['user_id'];
+$user_id="";
+  if(isset($_SESSION['user_id'])){
+    $user_id = $_SESSION['user_id'];
+  }
 
 // estabilish new db connection
 @ $db = new mysqli('localhost', 'root', '','RetroCafe');

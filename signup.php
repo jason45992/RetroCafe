@@ -1,8 +1,17 @@
 <?php
   session_start();
-  $user_id = $_SESSION['user_id'];
-  $user_name = $_SESSION['user_name'];
-  $user_is_admin = $_SESSION['user_is_admin'];
+  $user_id="";
+  if(isset($_SESSION['user_id'])){
+    $user_id = $_SESSION['user_id'];
+  }
+  $user_name="";
+  if(isset($_SESSION['user_name'])){
+    $user_name = $_SESSION['user_name'];
+  }
+  $user_is_admin="";
+  if(isset($_SESSION['user_is_admin'])){
+    $user_is_admin = $_SESSION['user_is_admin'];
+    }
 ?>
 <html>
 
@@ -64,10 +73,10 @@
                     <input type="email" placeholder="Enter Email" name="email" required>
 
                     <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <input type="password" placeholder="Enter Password" name="psw" id ="psw" required>
 
                     <label for="cfpsw"><b>Confirm Password</b></label>
-                    <input type="password" placeholder="Enter Password Again" name="cfpsw" required>
+                    <input type="password" placeholder="Enter Password Again" onchange="checkpwd()" name="cfpsw" id ="cfpsw" required>
 
                     <button type="submit" class="btn">Submit</button>
                 </div>
@@ -96,7 +105,7 @@
                         <li><a href="account_customer.php">Track My Order</a></li>
                         <li><a href="aboutus.php">Help</a></li>
                     </ul>';
-                }else if($_SESSION['user_is_admin'] == 0){
+                }else if(empty($_SESSION['user_id'])){
                     echo '<h3>My Account</h3>
                     <ul class="list-unstyled">
                         <li><a href="login.php">View Cart</a></li>
@@ -122,5 +131,12 @@
             </div>
         </div>
     </footer>
+    <script>
+        function checkpwd() {
+            if (!(document.getElementById('psw').value == document.getElementById('cfpsw').value)) {
+                alert("Your password does not match.");
+            } 
+        }
+    </script>
 </body>
 </html>

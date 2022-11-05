@@ -90,7 +90,9 @@ label {
 .product .product-details .product-title {
   margin-right: 20px;
   font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+  font-weight: bold;
 }
+
 .product .product-details .product-description {
   margin: 5px 20px 5px 0;
   line-height: 1.4em;

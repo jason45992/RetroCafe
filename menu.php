@@ -1,14 +1,29 @@
 <?php
   session_start();
-  $user_id = $_SESSION['user_id'];
-  $user_name = $_SESSION['user_name'];
-  $user_is_admin = $_SESSION['user_is_admin'];
+  $user_id="";
+  if(isset($_SESSION['user_id'])){
+    $user_id = $_SESSION['user_id'];
+  }
+  $user_name="";
+  if(isset($_SESSION['user_name'])){
+    $user_name = $_SESSION['user_name'];
+  }
+  $user_is_admin="";
+  if(isset($_SESSION['user_is_admin'])){
+    $user_is_admin = $_SESSION['user_is_admin'];
+    }
   $category = 'all';
-  $category = $_GET['category'];
+
+  if(isset($_GET['category'])){
+    $category = $_GET['category'];
+    }
   if($category === NULL){
     $category = 'all';
   }
-  $cart_list = $_SESSION['cart'];
+  $cart_list="";
+  if(isset($_SESSION['cart'])){
+    $cart_list = $_SESSION['cart'];
+    }
   if (isset($_GET['buy'])) {
     $_SESSION['cart'][] = $_GET['buy'];
   }
@@ -85,10 +100,10 @@
 				echo 'Error: Could not connect to database.  Please try again later.';
 				exit;
 			}
-			$query = "SELECT * FROM product";
+			$query = "SELECT * FROM product where product.visable = 1";
 
             if($category && $category != 'all'){
-                $query = $query." WHERE category='".$category."'";
+                $query = $query." and category='".$category."'";
             }
 
 			$result = $db->query($query);
@@ -134,7 +149,7 @@
                         <li><a href="account_customer.php">Track My Order</a></li>
                         <li><a href="aboutus.php">Help</a></li>
                     </ul>';
-                }else if($_SESSION['user_is_admin'] == 0){
+                }else if(empty($_SESSION['user_id'])){
                     echo '<h3>My Account</h3>
                     <ul class="list-unstyled">
                         <li><a href="login.php">View Cart</a></li>
@@ -179,7 +194,11 @@
         }
         document.cookie = "menu-scrollpos=0";
     };
-
+</script>
+<?php 
+    echo '<script type="text/JavaScript"> updateContentByFilter("'.$category.'");</script>';
+?>
+<script type="text/javascript">
     function addToCart(is_login, product_id, product_name, el) {
         if(is_login){
             if(<?php echo empty($user_is_admin)?>){
@@ -205,8 +224,4 @@
 <script type="text/javascript">
     window.scrollTo(0, <?php echo $_COOKIE['menu-scrollpos']; ?>);
 </script>
-<?php 
-echo '<script type="text/JavaScript"> updateContentByFilter("'.$category.'");</script>';
-?>
-
 </html>
