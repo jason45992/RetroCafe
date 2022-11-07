@@ -59,7 +59,7 @@
 ## About The Project
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
-<img src="RetroCafe/intro.png">
+<img src="https://github.com/jason45992/RetroCafe/blob/main/demo.jpg">
 
 Web-based ordering creates a great way to set up contactless table service at restaurants. It makes the existing delivery and takeout processes more accessible. Thus, our project aims to design a web portal for customers to purchase coffee and cakes online. 
 
