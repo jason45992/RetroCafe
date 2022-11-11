@@ -61,11 +61,6 @@
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 <img src="https://github.com/jason45992/RetroCafe/blob/main/demo.jpg">
 
-Web-based ordering creates a great way to set up contactless table service at restaurants. It makes the existing delivery and takeout processes more accessible. Thus, our project aims to design a web portal for customers to purchase coffee and cakes online. 
-
-To ensure the platform environment’s safety, registering will be needed for making orders. Customers can view the up-to-date menu presented on an interactive webpage. After clicking on the add-to-cart button, the items will be added to their shopping cart, and the customer can review the cart details any time before proceeding to check out, even logging back on the next time. The confirmation page will show up after successful payments, and the confirmation email will also be sent out to customers automatically. Furthermore, the product details shown on the menu page can be managed by the admin user via the admin console page. This ensures all the products' information is the latest and correct.
-
-
 ### Built With
 
 Our project is built with pure html, css, php and MariaDB.
