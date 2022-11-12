@@ -42,7 +42,7 @@
 	<!-- Navbar links -->
 	<nav class="navbar">
         <a class="logo" href="index.php">
-            <img src="logo.png">
+            <img src="image/logo.png">
         </a>
         <div class="nav-item">
             <ul>
@@ -85,7 +85,9 @@
 			<hr>
 			<?php
                 if(empty($is_edit)){
-                    echo '<div><label><b>Name:</b> '.$user_name.'</label><br><label><b>Username:</b> '.$user_user_name.'</label><br><label><b>Email:</b> '.$user_email.'</label></div><br><br><div class="edit" onclick="location.href=\'account_customer.php?edit=true\'"><button>Edit</button></div>';
+                    echo '<div><label><b>Name:</b> '.$user_name.'</label><br><label><b>Username:</b> '.$user_user_name.'</label><br>
+                    <label><b>Email:</b> '.$user_email.'</label></div><br><br>
+                    <div class="edit" onclick="location.href=\'account_customer.php?edit=true\'"><button>Edit</button></div>';
                 } else {
                     echo '<form action="user_profile_update.php" method="get">
                             <label><b>Name: </b><input name="name" value="'.$user_name.'" required></input></label><br>
@@ -111,7 +113,8 @@
 					echo 'Error: Could not connect to database.  Please try again later.';
 					exit;
 				}
-				$query = "SELECT LPAD(id, 8, '0') AS 'id', datetime, CONCAT(first_name, ' ', last_name) as 'name', amount, status FROM orders WHERE user_id = ".$user_id.";";
+				$query = "SELECT LPAD(id, 8, '0') AS 'id', datetime, CONCAT(first_name, ' ', last_name) as 'name', amount, status 
+                    FROM orders WHERE user_id = ".$user_id.";";
 				$result = $db->query($query);
 				$num_results = $result->num_rows;
 

@@ -33,7 +33,7 @@
     <!-- Navbar links -->
     <nav class="navbar">
         <a class="logo" href="index.php">
-            <img src="logo.png">
+            <img src="image/logo.png">
         </a>
         <div class="nav-item">
             <ul>
@@ -69,7 +69,7 @@
 
     <!-- Content -->
     <div class="menu-bar checkout">
-        <img src="menu.jpg" alt="Menu">
+        <img src="image/menu.jpg" alt="Menu">
         <div class="container">
             <div class="text">
                 <h2>Checkout</h2>
@@ -140,7 +140,6 @@
                         $query = "SELECT * FROM product WHERE id in (".$product_list.")";
                         $result = $db->query($query);
                         $num_results = $result->num_rows;
-
                         for ($i=0; $i <$num_results; $i++) {
                             $row = $result->fetch_assoc();
                             echo '<div class="item">
@@ -154,36 +153,14 @@
                                     <div class="product-price">S$'.floatval($row['price'])*$product_quantity[$row['id']].'</div>
                                 </div>';
                         }
-
                     }else{
                         echo "Shopping cart is empty!";
                     }
-                    echo '<div class="sub">
-                            <div class="product-subtotal">
-                                <div>Subtotal</div>
-                                <div>$'.$sub_total.'</div>
-                            </div>
-                        </div>
-                        <div class="sub">
-                            <div class="product-subtotal">
-                                <div>Tax(7%)</div>
-                                <div>$'.$tax.'</div>
-                            </div>
-                        </div>
-                        <div class="sub">
-                            <div class="product-subtotal">
-                                <div>Shipping</div>
-                                <div>$5</div>
-                            </div>
-                        </div>
-                        <div class="total">
-                            <div class="product-subtotal">
-                                <div>Total</div>
-                                <div>$'.$total.'</div>
-                            </div>
-                        </div>
-                    </div>';
-                ?>
+                    echo '<div class="sub"><div class="product-subtotal"><div>Subtotal</div><div>$'.$sub_total.'</div></div></div>
+                        <div class="sub"><div class="product-subtotal"><div>Tax(7%)</div><div>$'.$tax.'</div></div></div>
+                        <div class="sub"><div class="product-subtotal"><div>Shipping</div><div>$5</div></div></div>
+                        <div class="total"><div class="product-subtotal"><div>Total</div><div>$'.$total.'</div></div></div></div>';
+                    ?>
         </div>
     </div>
 

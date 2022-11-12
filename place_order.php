@@ -37,7 +37,8 @@
     $datetime = date('Y-m-d H:i:s', time());
 
     //create new order
-    $query = "insert into orders values (NULL, '".$user_id."', '".$firstname."', '".$lastname."', '".$contactnum."', '".$postalcode."', '".$address."', '".$amount."', 'Processing', '".$datetime."');";
+    $query = "insert into orders values (NULL, '".$user_id."', '".$firstname."', '".$lastname."', '".$contactnum."', 
+              '".$postalcode."', '".$address."', '".$amount."', 'Processing', '".$datetime."');";
     $result = $db->query($query);
 
     //get order id just created
@@ -62,3 +63,4 @@
     echo "<script>window.location.href='confirmation.php?orderid=".$last_id."';</script>";
     
 ?>
+

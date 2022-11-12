@@ -24,7 +24,7 @@
     <!-- Navbar links -->
     <nav class="navbar">
         <a class="logo" href="index.php">
-            <img src="logo.png">
+            <img src="image/logo.png">
         </a>
         <div class="nav-item">
             <ul>
@@ -60,7 +60,7 @@
                 <div class="left">
                     <h1>Sign Up</h1>
                     <p>Sign up now to get 10% off your order and a change to win 12 months of Arabica instant coffee.</p>
-                    <img src="logo_dark.png">
+                    <img src="image/logo_dark.png">
                 </div>
                 <div class="right">
                     <label for="name"><b>Name</b></label>

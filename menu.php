@@ -12,21 +12,24 @@
   if(isset($_SESSION['user_is_admin'])){
     $user_is_admin = $_SESSION['user_is_admin'];
     }
-  $category = 'all';
 
+  $category = 'all';
   if(isset($_GET['category'])){
     $category = $_GET['category'];
     }
   if($category === NULL){
     $category = 'all';
   }
+
   $cart_list="";
   if(isset($_SESSION['cart'])){
     $cart_list = $_SESSION['cart'];
     }
+
   if (isset($_GET['buy'])) {
     $_SESSION['cart'][] = $_GET['buy'];
   }
+
   if (isset($_COOKIE['cart-scrollpos'])) {
     setcookie("cart-scrollpos", 0, time() + (86400 * 30));
   }
@@ -43,7 +46,7 @@
     <!-- Navbar links -->
     <nav class="navbar">
         <a class="logo" href="index.php">
-            <img src="logo.png">
+            <img src="image/logo.png">
         </a>
         <div class="nav-item">
             <ul>
@@ -79,7 +82,7 @@
 
     <!-- Content -->
     <div class="menu-bar">
-        <img src="menu.jpg" alt="Menu">
+        <img src="image/menu.jpg" alt="Menu">
         <div class="container">
             <div class="text">
                 <h1>Menu</h1>
@@ -113,12 +116,18 @@
 				for ($i=0; $i <$num_results; $i++) {
 					$row = $result->fetch_assoc();
                     if(empty($user_id)){
-                        echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2><p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p><p><button onclick="addToCart(0,'.$row['id'].',\''.$row['name'].'\',this);">Add to Cart</button></p></div>';
+                        echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2>
+                        <p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p>
+                        <p><button onclick="addToCart(0,'.$row['id'].',\''.$row['name'].'\',this);">Add to Cart</button></p></div>';
                     }else{
                         if($row['quantity'] > 0){
-                            echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2><p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p><p><button onclick="addToCart(1,'.$row['id'].',\''.$row['name'].'\',this);">Add to Cart</button></p></div>';
+                            echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2>
+                            <p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p>
+                            <p><button onclick="addToCart(1,'.$row['id'].',\''.$row['name'].'\',this);">Add to Cart</button></p></div>';
                         } else {
-                            echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2><p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p><p><button class="out-stock"">Out of Stock</button></p></div>';
+                            echo '<div class="menu-item"><img src="'.$row['img_url'].'"><h2>'.$row['name'].'</h2>
+                            <p class="price">$'.$row['price'].'</p><p class="description">'.$row['description'].'</p>
+                            <p><button class="out-stock"">Out of Stock</button></p></div>';
                         }
                     }
 				}

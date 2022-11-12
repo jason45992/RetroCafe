@@ -13,12 +13,13 @@
   $user_is_admin="";
   if(isset($_SESSION['user_is_admin'])){
     $user_is_admin = $_SESSION['user_is_admin'];
-    }
+  }
   
-    $cart_list="";
+  $cart_list="";
   if(isset($_SESSION['cart'])){
     $cart_list = $_SESSION['cart'];
-    }
+  }
+
   if (isset($_COOKIE['menu-scrollpos'])) {
     setcookie("menu-scrollpos", 0, time() + (86400 * 30));
   }
@@ -37,7 +38,7 @@
     <!-- Navbar links -->
     <nav class="navbar">
         <a class="logo" href="index.php">
-            <img src="logo.png">
+            <img src="image/logo.png">
         </a>
         <div class="nav-item">
             <ul>
@@ -75,11 +76,10 @@
     <div>
         <!-- Banner -->
         <div class="banner">
-            <img src="banner.jpg" alt="Banner">
+            <img src="image/banner.jpg" alt="Banner">
             <div class="content">
                 <h1>Unique Craft <br>Cafe in SG</h1>
-                <p>Coffee is a lot more than just a drink; it's something happening.
-Not as in hip, but like an event, place to be, but not like a location, but like somewhere within yourself. It gives you time, but not actual hours or minutes, but a chance to be, like be yourself, and have a second cup.</p>
+                <p>Coffee is a lot more than just a drink; it's something happening. Not as in hip, but like an event, place to be, but not like a location, but like somewhere within yourself. It gives you time, but not actual hours or minutes, but a chance to be, like be yourself, and have a second cup.</p>
             </div>
         </div>
         <!-- Popular items -->
@@ -89,38 +89,38 @@ Not as in hip, but like an event, place to be, but not like a location, but like
                 <div class="gallery-inner">
                     <div class="">
                         <div class="popular-item">
-                            <img src="cafe1.jpg">
-                            <img class="overlay"src="cafe1.jpg">
+                            <img src="image/cafe1.jpg">
+                            <img class="overlay"src="image/cafe1.jpg">
                         </div>
                     </div>
                     <div class="">
                         <div class="popular-item">
-                            <img src="cafe2.jpg">
-                            <img class="overlay"src="cafe2.jpg">
+                            <img src="image/cafe2.jpg">
+                            <img class="overlay"src="image/cafe2.jpg">
                         </div>
                     </div>
                     <div class="">
                         <div class="popular-item">
-                            <img src="cafe3.jpg">
-                            <img class="overlay"src="cafe3.jpg">
+                            <img src="image/cafe3.jpg">
+                            <img class="overlay"src="image/cafe3.jpg">
                         </div>
                     </div>
                     <div class="">
                         <div class="popular-item">
-                            <img src="cafe4.jpg">
-                            <img class="overlay"src="cafe4.jpg">
+                            <img src="image/cafe4.jpg">
+                            <img class="overlay"src="image/cafe4.jpg">
                         </div>
                     </div>
                     <div class="">
                         <div class="popular-item">
-                            <img src="cafe5.jpg">
-                            <img class="overlay"src="cafe5.jpg">
+                            <img src="image/cafe5.jpg">
+                            <img class="overlay"src="image/cafe5.jpg">
                         </div>
                     </div>
                     <div class="">
                         <div class="popular-item">
-                            <img src="cafe6.jpg">
-                            <img class="overlay"src="cafe6.jpg">
+                            <img src="image/cafe6.jpg">
+                            <img class="overlay"src="image/cafe6.jpg">
                         </div>
                     </div>
                 </div>

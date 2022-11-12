@@ -24,7 +24,7 @@
     <!-- Navbar links -->
     <nav class="navbar">
         <a class="logo" href="index.php">
-            <img src="logo.png">
+            <img src="image/logo.png">
         </a>
         <div class="nav-item">
             <ul>

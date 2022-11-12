@@ -12,7 +12,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/jason45992/RetroCafe">
-    <img src="https://github.com/jason45992/RetroCafe/blob/main/logo_dark.png" alt="Logo" width="200">
+    <img src="https://github.com/jason45992/RetroCafe/blob/main/image/logo_dark.png" alt="Logo" width="200">
   </a>
 
   <h3 align="center">Retro Café</h3>
@@ -59,7 +59,7 @@
 ## About The Project
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
-<img src="https://github.com/jason45992/RetroCafe/blob/main/demo.jpg">
+<img src="https://github.com/jason45992/RetroCafe/blob/main/image/demo.jpg">
 
 Web-based ordering creates a great way to set up contactless table service at restaurants. It makes the existing delivery and takeout processes more accessible. Thus, our project aims to design a web portal for customers to purchase coffee and cakes online. 
 

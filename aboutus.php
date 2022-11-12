@@ -36,7 +36,7 @@
 	<!-- Navbar links -->
 	<nav class="navbar">
         <a class="logo" href="index.php">
-            <img src="logo.png">
+            <img src="image/logo.png">
         </a>
         <div class="nav-item">
             <ul>
@@ -72,7 +72,7 @@
 
 	<!-- Content -->
 	<div class="wrapper">
-		<img src="contactus.png" alt="About Us">
+		<img src="image/contactus.png" alt="About Us">
 		<div class="container">
 			<div class="text">
 				<h1>About Us</h1>
@@ -102,7 +102,7 @@
 		</div>
 		<div class="about-container">
 			<div class="leftcolumn">
-				<img src="contactus1.png" alt="contact us image">
+				<img src="image/contactus1.png" alt="contact us image">
 			</div>
 
 			<div class="rightcolumn">

@@ -21,13 +21,16 @@ $imgurlNew=$_GET['img_url'];
 if($_GET['submit'] == 'Update'){
 	if(!empty($selectedid) && ($selectedid != "AddNew")){
 		//echo 'update';
-		$query = "UPDATE product SET modified_date=CURRENT_TIMESTAMP, category = '".$categoryNew."', name = '".$nameNew."', img_url = '".$imgurlNew."', price = '".$priceNew."', quantity = '".$quantityNew."', description = '".$descriptionNew."', visable = '".$visableNew."' WHERE id = '".$selectedid."';";
+		$query = "UPDATE product SET modified_date=CURRENT_TIMESTAMP, category = '".$categoryNew."', name = '".$nameNew."', 
+			img_url = '".$imgurlNew."', price = '".$priceNew."', quantity = '".$quantityNew."', description = '".$descriptionNew."', 
+			visable = '".$visableNew."' WHERE id = '".$selectedid."';";
 		$result = $db->query($query);
 		echo "<script>alert('Item information has been updated!');</script>";
 	}
 	else{
 		//echo 'insert';
-		$query = "INSERT INTO product SET modified_date=CURRENT_TIMESTAMP, category = '".$categoryNew."', name = '".$nameNew."', img_url = '".$imgurlNew."', price = '".$priceNew."', quantity = '".$quantityNew."', description = '".$descriptionNew."', visable = '".$visableNew."';";
+		$query = "INSERT INTO product SET modified_date=CURRENT_TIMESTAMP, category = '".$categoryNew."', name = '".$nameNew."', 
+		img_url = '".$imgurlNew."', price = '".$priceNew."', quantity = '".$quantityNew."', description = '".$descriptionNew."', visable = '".$visableNew."';";
 		$result = $db->query($query);
 		echo "<script>alert('New item has been added!');</script>";
 	}

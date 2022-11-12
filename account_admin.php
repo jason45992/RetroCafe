@@ -29,7 +29,7 @@
 	<!-- Navbar links -->
 	<nav class="navbar">
         <a class="logo" href="index.php">
-            <img src="logo.png">
+            <img src="image/logo.png">
         </a>
         <div class="nav-item">
             <ul>
@@ -66,7 +66,8 @@
 			<h3>Personal Information</h3>
 			<hr>
 			<?php
-				echo '<label><b>Name:</b> '.$user_name.'</label><br><label><b>Username:</b> '.$user_user_name.'</label><br><label><b>Email:</b> '.$user_email.'</label><br><br>';
+				echo '<label><b>Name:</b> '.$user_name.'</label><br><label><b>Username:</b> '.$user_user_name.'</label><br>
+                <label><b>Email:</b> '.$user_email.'</label><br><br>';
 			?>
 			<div class="adminbutton">
 				<button onclick="location.href='admin_console.php'">Admin Console</button>

@@ -107,7 +107,7 @@ footer a {
 /* Login & Signup*/
 .bg-img {
     /* The image used */
-    background-image: url("cafe1.jpg");
+    background-image: url("image/cafe1.jpg");
     min-height: 500px;
     background-position: center;
     background-repeat: no-repeat;

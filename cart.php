@@ -63,7 +63,7 @@
     <!-- Navbar links -->
     <nav class="navbar">
         <a class="logo" href="index.php">
-            <img src="logo.png">
+            <img src="image/logo.png">
         </a>
         <div class="nav-item">
             <ul>
@@ -99,7 +99,7 @@
 
     <!-- Content -->
     <div class="menu-bar">
-        <img src="cart.jpg" alt="Menu">
+        <img src="image/cart.jpg" alt="Menu">
         <div class="container">
             <div class="text">
                 <h2>Shopping Cart</h2>
@@ -143,12 +143,15 @@
                             </div>
                             <div class="product-price">'.$row['price'].'</div>
                             <div class="product-quantity">
-                                <a class="remove-product" onclick="updateCokkie();" href="'.$_SERVER['PHP_SELF'].'?decreaseIten='.$row['id'].'">-</a>
+                                <a class="remove-product" onclick="updateCokkie();" 
+                                    href="'.$_SERVER['PHP_SELF'].'?decreaseIten='.$row['id'].'">-</a>
                                 <input type="text" value="'.$product_quantity[$row['id']].'" disabled="disabled">
-                                <a class="remove-product" onclick="updateCokkie();" href="'.$_SERVER['PHP_SELF'].'?addItem='.$row['id'].'">+</a>
+                                <a class="remove-product" onclick="updateCokkie();" 
+                                    href="'.$_SERVER['PHP_SELF'].'?addItem='.$row['id'].'">+</a>
                             </div>
                             <div class="product-removal">
-                                <a class="remove-product" onclick="updateCokkie();" href="'.$_SERVER['PHP_SELF'].'?removeItem='.$row['id'].'">Remove</a>
+                                <a class="remove-product" onclick="updateCokkie();" 
+                                    href="'.$_SERVER['PHP_SELF'].'?removeItem='.$row['id'].'">Remove</a>
                             </div>
                             <div class="product-line-price">'.floatval($row['price'])*$product_quantity[$row['id']].'</div>
                         </div>';

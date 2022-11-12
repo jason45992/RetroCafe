@@ -28,7 +28,7 @@
     <!-- Navbar links -->
     <nav class="navbar">
         <a class="logo" href="index.php">
-            <img src="logo.png">
+            <img src="image/logo.png">
         </a>
         <div class="nav-item">
             <ul>
@@ -82,7 +82,9 @@
                          echo 'Error: Could not connect to database.  Please try again later.';
                          exit;
                      }
-                     $query = "SELECT product.name, product.img_url, product.price, product.description, order_items.quantity, orders.amount FROM product, orders, order_items WHERE order_items.order_id = orders.id and order_items.product_id = product.id AND orders.id = '".$orderid."'";
+                     $query = "SELECT product.name, product.img_url, product.price, product.description, order_items.quantity, orders.amount 
+                            FROM product, orders, order_items WHERE order_items.order_id = orders.id and order_items.product_id = product.id 
+                            AND orders.id = '".$orderid."'";
                      $result = $db->query($query);
                      $sub_total = 0;
                      $total = 0;
@@ -107,24 +109,9 @@
                             <div class="product-price">$'.$sub_price.'</div>
                         </div>';
                      }
-                     echo '<div class="sub">
-                            <div class="product-subtotal">
-                                <div>Subtotal</div>
-                                <div>$'.$sub_total.'</div>
-                            </div>
-                        </div>
-                        <div class="sub">
-                            <div class="product-subtotal">
-                                <div>Shipping</div>
-                                <div>$5</div>
-                            </div>
-                        </div>
-                        <div class="total">
-                            <div class="product-subtotal">
-                                <div>Total(GST inclusive)</div>
-                                <div>$'.$total.'</div>
-                            </div>
-                        </div>';
+                     echo '<div class="sub"><div class="product-subtotal"><div>Subtotal</div><div>$'.$sub_total.'</div></div></div>
+                        <div class="sub"><div class="product-subtotal"><div>Shipping</div><div>$5</div></div></div>
+                        <div class="total"><div class="product-subtotal"><div>Total(GST inclusive)</div><div>$'.$total.'</div></div></div>';
                 ?>
             </div>
         </div>
@@ -205,8 +192,8 @@
 
 <!-- send email -->
 <?php
-// require "/Applications/XAMPP/xamppfiles/htdocs/mail_patch.php";
-// use function mail_patch\mail;
+require "/Applications/XAMPP/xamppfiles/htdocs/mail_patch.php";
+use function mail_patch\mail;
 $to      = $user_email;
 $subject = 'Thank you for your order!';
 $htmlContent = file_get_contents('email_template.html');

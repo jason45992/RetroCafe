@@ -49,7 +49,7 @@ $selectedimgurl='';
 	<!-- Navbar links -->
 	<nav class="navbar">
         <a class="logo" href="index.php">
-            <img src="logo.png">
+            <img src="image/logo.png">
         </a>
         <div class="nav-item">
             <ul>
@@ -121,12 +121,12 @@ $selectedimgurl='';
 					<td>'.$row['quantity'].'</td>
 					<td>'.$row['visable'].'</td>
 					<td>'.$row['modified_date'].'</td>
-				</tr>';
-					
+					</tr>';
+						
+					}
+					echo '</table>';
 				}
-				echo '</table>';
-			}
-			?>
+				?>
 			</div>
 
 			<form action="admin_console_info_update.php" method="get">
